@@ -262,7 +262,10 @@ export class PagedPreviewRenderer {
 
             window.addEventListener('message', onMessage);
 
-            iframe.srcdoc = this.buildIframeHTML(contentString, css, theme, blockList, preSourceStyle, codeTheme, printOptions);
+            const html = this.buildIframeHTML(contentString, css, theme, blockList, preSourceStyle, codeTheme, printOptions);
+            const blobUrl = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+            iframe.addEventListener('load', () => URL.revokeObjectURL(blobUrl), { once: true });
+            iframe.src = blobUrl;
         });
     }
 
