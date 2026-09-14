@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to PDF Converter with Live Page Preview</title>
+    <meta name="description" content="Free, open-source Markdown to PDF converter with a page-by-page preview that matches your exported PDF exactly. Tables, images, code blocks, and diagrams resize to fit, so nothing gets cut off mid-page. Runs entirely in your browser.">
+    <link rel="canonical" href="https://bumbum-markdown.com/">
+    <meta name="theme-color" content="#c0c0c0">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Markdown to PDF Converter">
+    <meta property="og:title" content="Markdown to PDF Converter with Live Page Preview">
+    <meta property="og:description" content="Free, open-source Markdown to PDF converter with a page-by-page preview that matches your exported PDF exactly. Tables, images, code blocks, and diagrams resize to fit, so nothing gets cut off mid-page.">
+    <meta property="og:url" content="https://bumbum-markdown.com/">
+    <meta property="og:image" content="https://bumbum-markdown.com/screenshots/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Markdown to PDF Converter with Live Page Preview">
+    <meta name="twitter:description" content="Free, open-source Markdown to PDF converter with a page-by-page preview that matches your exported PDF exactly. Nothing gets cut off mid-page.">
+    <meta name="twitter:image" content="https://bumbum-markdown.com/screenshots/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Structured data: see https://schema.org/WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Markdown to PDF Converter",
+        "url": "https://bumbum-markdown.com/",
+        "description": "Free, open-source Markdown to PDF converter with a page-by-page preview that matches your exported PDF exactly. Tables, images, code blocks, and diagrams resize to fit, so nothing gets cut off mid-page.",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any (runs in a web browser)",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+            "@type": "Person",
+            "name": "Krzysztof Wasyluk"
+        }
+    }
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Retro Design System -->
+    <link rel="stylesheet" href="css/retro/retro-variables.css">
+    <link rel="stylesheet" href="css/retro/retro-base.css">
+    <link rel="stylesheet" href="css/retro/retro-utilities.css">
+    <link rel="stylesheet" href="css/retro/retro-window.css">
+    <link rel="stylesheet" href="css/retro/retro-button.css">
+    <link rel="stylesheet" href="css/retro/retro-taskbar.css">
+    <link rel="stylesheet" href="css/retro/retro-start-menu.css">
+    <link rel="stylesheet" href="css/retro/retro-context-menu.css">
+    <link rel="stylesheet" href="css/retro/retro-desktop-icon.css">
+    <link rel="stylesheet" href="css/retro/retro-layout.css">
+    <link rel="stylesheet" href="css/retro/retro-forms.css">
+    
+    <!-- Retro Effects (Phase 6) -->
+    <link rel="stylesheet" href="css/retro/effects/scanlines.css">
+    <link rel="stylesheet" href="css/retro/effects/crt.css">
+    
+    <link rel="stylesheet" href="css/components/settings-panel.css">
+    <link rel="stylesheet" href="css/components/notifications.css">
+    <link rel="stylesheet" href="css/components/preview-indicators.css">
+    <link rel="stylesheet" href="css/components/image-panel.css">
+    <link rel="stylesheet" href="css/components/toc-panel.css">
+    <link rel="stylesheet" href="css/components/image-resize.css">
+    <link rel="stylesheet" href="css/components/block-resize.css">
+    <link rel="stylesheet" href="css/components/file-manager.css">
+    <link rel="stylesheet" href="css/components/editor-enhancements.css">
+    <link rel="stylesheet" href="css/components/editor-highlighting.css">
+    <link rel="stylesheet" href="css/components/loading-indicators.css">
+    <link rel="stylesheet" href="css/components/export-manager.css">
+    <link rel="stylesheet" href="css/components/scroll-sync.css">
+    <link rel="stylesheet" href="css/components/document-toolbar.css">
+    <link rel="stylesheet" href="css/components/info-window.css">
+    <link rel="stylesheet" href="css/themes/modern.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/code-block-themes.css">
+    <link rel="stylesheet" id="code-theme-stylesheet">
+
+    <!-- External Libraries (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" integrity="sha384-eFTL69TLRZTkNfYZOLM+G04821K1qZao/4QLJbet1pP4tcF+fdXq/9CdqAbWRl/L" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+    <!-- Web font fallbacks for the #font-family picker (Roboto, Inter, EB
+         Garamond, Comic Neue, PT Serif, Nunito) - keep this URL in sync
+         with js/modules/webFonts.js's GOOGLE_FONTS_URL, which every
+         export/print pipeline loads the same way in its own <head>. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;700&family=EB+Garamond:wght@400;700&family=Comic+Neue:wght@400;700&family=PT+Serif:wght@400;700&family=Nunito:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header" role="banner">
+            <div class="header-content">
+                <h1 id="app-title">📄 Markdown to PDF Converter</h1>
+                <nav class="header-actions" role="navigation" aria-label="Main navigation">
+                    <!-- File Management Controls -->
+                    <div class="file-controls" role="group" aria-label="File operations">
+                        <button id="file-open" class="btn btn-icon" title="Open Markdown file" aria-label="Open Markdown file">📁 Open</button>
+                        <button id="file-save" class="btn btn-icon" title="Save to browser" aria-label="Save project to browser storage">💾 Save</button>
+                        <button id="file-load" class="btn btn-icon" title="Load saved project" aria-label="Load saved project from browser storage">📂 Load</button>
+                        <button id="file-export" class="btn btn-icon" title="Export as .md" aria-label="Export as Markdown file">📤 Export</button>
+                        <button id="file-clear" class="btn btn-icon" title="Clear editor" aria-label="Clear editor content">🗑️ Clear</button>
+                    </div>
+
+                    <div class="divider" role="separator"></div>
+                    
+                    <!-- Options populated at runtime by ThemeManager.init()
+                         from js/modules/themeRegistry.js, the single source
+                         of truth for the theme list. -->
+                    <select id="theme-selector" class="theme-selector" aria-label="Select PDF theme"></select>
+                    <!-- Options populated at runtime by ThemeManager.init()
+                         from js/modules/codeThemeRegistry.js. -->
+                    <select id="code-theme-selector" class="theme-selector" aria-label="Select code block theme"></select>
+                    <button id="images-toggle" aria-label="Toggle image panel">📷 Images</button>
+                    <button id="toc-toggle" aria-label="Toggle table of contents">📑 TOC</button>
+                    <button id="settings-toggle" aria-label="Open PDF settings">⚙️ Settings</button>
+                    
+                    <!-- Export Dropdown -->
+                    <div class="export-dropdown">
+                        <button id="export-pdf" class="export-main-btn" aria-label="Export as PDF">
+                            📥 Export PDF
+                        </button>
+                        <button id="export-dropdown-toggle" class="export-dropdown-toggle" aria-label="More export options" aria-expanded="false" aria-controls="export-dropdown-menu">
+                            ▼
+                        </button>
+                        <div id="export-dropdown-menu" class="export-dropdown-menu" role="menu">
+                            <button class="export-dropdown-item" data-action="export-pdf" role="menuitem">
+                                📄 Export as PDF
+                            </button>
+                            <button class="export-dropdown-item" data-action="export-html" role="menuitem">
+                                🌐 Export as HTML
+                            </button>
+                            <button class="export-dropdown-item" data-action="print-preview" role="menuitem">
+                                🖨️ Print Preview
+                            </button>
+                            <div class="export-dropdown-divider" role="separator"></div>
+                            <button class="export-dropdown-item" data-action="batch-export" role="menuitem">
+                                📦 Batch Export (PDF + HTML)
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content" role="main">
+            <!-- Editor Panel -->
+            <section class="editor-panel" aria-label="Markdown editor">
+                <div class="panel-header">
+                    <h2 id="editor-title">Editor</h2>
+                    <div class="editor-controls" role="toolbar" aria-label="Editor tools" aria-controls="markdown-editor">
+                        <button id="editor-scroll-sync-toggle" class="btn-icon" title="Scroll sync disabled (Alt+S to enable)" aria-label="Toggle scroll synchronization" aria-pressed="false">🔗</button>
+                        <button id="editor-line-numbers-toggle" class="btn-icon" title="Toggle line numbers (Alt+L)" aria-label="Toggle line numbers" aria-pressed="false">🔢</button>
+                        <button id="editor-find-toggle" class="btn-icon" title="Find (Ctrl+F)" aria-label="Open find and replace">🔍</button>
+                        <span class="word-count" id="word-count" role="status" aria-live="polite" aria-atomic="true">0 words | 0 characters</span>
+                    </div>
+                </div>
+                <div class="markdown-editor-wrapper">
+                    <pre id="markdown-editor-highlight" class="markdown-editor-highlight" aria-hidden="true"></pre>
+                    <textarea
+                        id="markdown-editor"
+                        class="markdown-editor"
+                        aria-labelledby="editor-title"
+                        aria-describedby="word-count"
+                        spellcheck="false"
+                        placeholder="# Start typing your markdown here...
+
+Try some examples:
+
+**Bold** and *italic* text
+
+- List item 1
+- List item 2
+
+```javascript
+console.log('Hello!');
+```
+
+```mermaid
+graph LR
+    A[Start] --> B[Edit]
+    B --> C[Preview]
+```"></textarea>
+                </div>
+            </section>
+
+            <div class="panel-splitter" role="separator" aria-orientation="vertical" aria-label="Resize editor and preview panels" tabindex="0"></div>
+
+            <!-- Preview Panel -->
+            <section class="preview-panel" aria-label="Document preview">
+                <div class="panel-header">
+                    <h2 id="preview-title">Preview</h2>
+                    <div class="preview-controls" role="toolbar" aria-label="Preview controls">
+                        <span id="preview-page-count" class="preview-page-count" aria-live="polite" hidden></span>
+                        <div class="preview-mode-switch" role="group" aria-label="Preview mode">
+                            <button id="preview-mode-markdown" class="preview-mode-btn" title="Show plain rendered markdown" aria-pressed="false">
+                                <span class="preview-mode-icon" aria-hidden="true">📝</span>
+                                <span class="preview-mode-text">Markdown Preview</span>
+                            </button>
+                            <button id="preview-mode-pdf" class="preview-mode-btn" title="Show paginated preview matching the exported PDF" aria-pressed="true">
+                                <span class="preview-mode-icon" aria-hidden="true">📄</span>
+                                <span class="preview-mode-text">PDF Preview</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="preview-content" class="preview-content" role="region" aria-labelledby="preview-title" aria-live="polite" tabindex="0">
+                    <p class="preview-placeholder">Your rendered content will appear here...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer" role="contentinfo">
+            <p>Built with love using vanilla JavaScript | Supports Markdown & Mermaid diagrams</p>
+        </footer>
+    </div>
+
+    <!-- Hidden file inputs -->
+    <input type="file" id="file-input" accept=".md,.markdown" style="display: none;" aria-label="Select Markdown file">
+
+    <!-- Settings Panel -->
+    <div id="settings-overlay" role="presentation"></div>
+    <aside id="settings-panel" role="dialog" aria-labelledby="settings-title" aria-modal="true">
+        <div class="settings-header">
+            <h2 id="settings-title">PDF Settings</h2>
+            <button id="settings-close" class="settings-close" aria-label="Close settings panel">×</button>
+        </div>
+        
+        <div class="settings-content">
+            <!-- Page Settings -->
+            <div class="settings-section">
+                <h3>Page Settings</h3>
+                
+                <div class="control-group">
+                    <label for="page-size">Page Size</label>
+                    <select id="page-size">
+                        <option value="A4">A4 (210 × 297 mm)</option>
+                        <option value="Letter">Letter (8.5 × 11 in)</option>
+                        <option value="Legal">Legal (8.5 × 14 in)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Margins (mm)</label>
+                    <div class="margin-grid">
+                        <div class="margin-control">
+                            <label for="margin-top">Top</label>
+                            <div class="range-control">
+                                <input type="range" id="margin-top" min="0" max="50" value="20">
+                                <input type="number" id="margin-top-value" min="0" max="50" value="20" class="range-value">
+                            </div>
+                        </div>
+                        
+                        <div class="margin-control">
+                            <label for="margin-bottom">Bottom</label>
+                            <div class="range-control">
+                                <input type="range" id="margin-bottom" min="0" max="50" value="20">
+                                <input type="number" id="margin-bottom-value" min="0" max="50" value="20" class="range-value">
+                            </div>
+                        </div>
+                        
+                        <div class="margin-control">
+                            <label for="margin-left">Left</label>
+                            <div class="range-control">
+                                <input type="range" id="margin-left" min="0" max="50" value="20">
+                                <input type="number" id="margin-left-value" min="0" max="50" value="20" class="range-value">
+                            </div>
+                        </div>
+                        
+                        <div class="margin-control">
+                            <label for="margin-right">Right</label>
+                            <div class="range-control">
+                                <input type="range" id="margin-right" min="0" max="50" value="20">
+                                <input type="number" id="margin-right-value" min="0" max="50" value="20" class="range-value">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography Settings -->
+            <div class="settings-section">
+                <h3>Typography</h3>
+                
+                <div class="control-group">
+                    <label for="font-family">Font Family</label>
+                    <!-- Each value is a full fallback stack ending in the
+                         correct generic family (see getPagedTypographyCSS
+                         in DocumentStructure.js, which no longer appends
+                         its own blanket 'sans-serif'). Garamond, Comic Sans
+                         MS, Palatino and Trebuchet MS fall back to a real
+                         web font (loaded above via Google Fonts) rather
+                         than a bare name, since none of the four are
+                         actually installed on most non-Windows systems and
+                         previously collapsed to the same default font. -->
+                    <select id="font-family">
+                        <option value="Arial, 'Liberation Sans', 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+                        <!-- Leads with Inter (a loaded web font), not the
+                             literal name 'Helvetica': on Linux, fontconfig
+                             silently aliases the name 'Helvetica' to a
+                             near-identical Arial clone (e.g. Nimbus Sans)
+                             before the browser ever tries a later fallback
+                             in the stack - from the browser's point of
+                             view "Helvetica" was found, so it never
+                             reaches anything after it. Putting a real,
+                             distinctly-shaped font first is the only way
+                             to make this option look different from
+                             Arial. -->
+                        <option value="Inter, Helvetica, 'Helvetica Neue', Arial, sans-serif">Helvetica</option>
+                        <option value="'Times New Roman', 'Liberation Serif', Times, serif">Times New Roman</option>
+                        <option value="Georgia, 'Noto Serif', serif">Georgia</option>
+                        <option value="'Courier New', 'Liberation Mono', Courier, monospace">Courier New</option>
+                        <option value="Verdana, 'DejaVu Sans', Geneva, sans-serif">Verdana</option>
+                        <option value="'Trebuchet MS', Nunito, sans-serif">Trebuchet MS</option>
+                        <option value="Palatino, 'Palatino Linotype', 'PT Serif', 'Book Antiqua', serif">Palatino</option>
+                        <option value="Garamond, 'EB Garamond', 'Book Antiqua', serif">Garamond</option>
+                        <option value="'Comic Sans MS', 'Comic Neue', cursive">Comic Sans MS</option>
+                        <option value="'Segoe UI', 'Adwaita Sans', system-ui, Roboto, sans-serif">Segoe UI</option>
+                        <option value="Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif">Roboto</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="font-size">Font Size (pt)</label>
+                    <div class="range-control">
+                        <input type="range" id="font-size" min="8" max="24" value="12">
+                        <span id="font-size-value" class="range-value">12</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="line-height">Line Height</label>
+                    <div class="range-control">
+                        <input type="range" id="line-height" min="1.0" max="2.5" step="0.1" value="1.5">
+                        <span id="line-height-value" class="range-value">1.5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document Structure -->
+            <div class="settings-section">
+                <h3>Document Structure</h3>
+                
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="toc-enabled">
+                        <span>Generate Table of Contents</span>
+                    </label>
+                </div>
+                
+                <div class="control-group" id="toc-options" style="display: none;">
+                    <label for="toc-depth">TOC Depth (Heading Levels)</label>
+                    <select id="toc-depth">
+                        <option value="2">H1-H2</option>
+                        <option value="3" selected>H1-H3</option>
+                        <option value="4">H1-H4</option>
+                        <option value="5">H1-H5</option>
+                        <option value="6">H1-H6</option>
+                    </select>
+                </div>
+                
+                <div class="control-group" id="toc-title-group" style="display: none;">
+                    <label for="toc-title">TOC Title</label>
+                    <input type="text" id="toc-title" value="Table of Contents" placeholder="Table of Contents">
+                </div>
+            </div>
+
+            <!-- Headers & Footers -->
+            <div class="settings-section">
+                <h3>Headers & Footers</h3>
+                
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="header-enabled">
+                        <span>Enable Header</span>
+                    </label>
+                </div>
+                
+                <div class="control-group" id="header-template-group" style="display: none;">
+                    <label for="header-template">Header Template</label>
+                    <input type="text" id="header-template" placeholder="e.g., {title} - {author}">
+                    <p class="help-text">Use {title}, {author}, {date} as placeholders</p>
+                </div>
+                
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="footer-enabled">
+                        <span>Enable Footer</span>
+                    </label>
+                </div>
+                
+                <div class="control-group" id="footer-options" style="display: none;">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="footer-page-numbers" checked>
+                        <span>Show Page Numbers</span>
+                    </label>
+                </div>
+                
+                <div class="control-group" id="footer-template-group" style="display: none;">
+                    <label for="footer-template">Footer Template</label>
+                    <input type="text" id="footer-template" placeholder="e.g., Page {page} of {total}">
+                    <p class="help-text">Use {page}, {total}, {title}, {date}</p>
+                </div>
+            </div>
+
+            <!-- Document Metadata -->
+            <div class="settings-section">
+                <h3>Document Metadata</h3>
+                
+                <div class="control-group">
+                    <label for="doc-title">Title</label>
+                    <input type="text" id="doc-title" placeholder="Document Title">
+                </div>
+                
+                <div class="control-group">
+                    <label for="doc-author">Author</label>
+                    <input type="text" id="doc-author" placeholder="Author Name">
+                </div>
+                
+                <div class="control-group">
+                    <label for="doc-subject">Subject</label>
+                    <input type="text" id="doc-subject" placeholder="Document Subject">
+                </div>
+                
+                <div class="control-group">
+                    <label for="doc-keywords">Keywords</label>
+                    <input type="text" id="doc-keywords" placeholder="keyword1, keyword2, keyword3">
+                </div>
+            </div>
+
+            <!-- Cover Page -->
+            <div class="settings-section">
+                <h3>Cover Page</h3>
+                
+                <div class="control-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="cover-enabled">
+                        <span>Generate Cover Page</span>
+                    </label>
+                </div>
+                
+                <div id="cover-options" style="display: none;">
+                    <div class="control-group">
+                        <label for="cover-title">Cover Title</label>
+                        <input type="text" id="cover-title" placeholder="Document Title">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="cover-subtitle">Subtitle</label>
+                        <input type="text" id="cover-subtitle" placeholder="Subtitle (optional)">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="cover-author">Author</label>
+                        <input type="text" id="cover-author" placeholder="Author Name">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="cover-date">Date</label>
+                        <input type="date" id="cover-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom CSS -->
+            <div class="settings-section">
+                <h3>Custom CSS</h3>
+                <p class="help-text">Add your own CSS to customize the preview and PDF output. This CSS will be applied on top of the selected theme.</p>
+                
+                <div class="control-group">
+                    <label for="custom-css">Custom CSS</label>
+                    <textarea id="custom-css" class="custom-css-textarea" placeholder=".preview-content h1 {
+    color: #ff0000;
+    font-size: 3rem;
+}
+
+.preview-content code {
+    background-color: #f0f0f0;
+}" rows="10"></textarea>
+                </div>
+                
+                <div class="custom-css-actions">
+                    <button id="custom-css-apply" class="btn-apply">Apply CSS</button>
+                    <button id="custom-css-clear" class="btn-clear">Clear CSS</button>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="settings-section">
+                <h3>Manage Settings</h3>
+                <div class="settings-actions">
+                    <button id="settings-reset" class="btn-reset">Reset</button>
+                    <button id="settings-export" class="btn-export">Export</button>
+                    <button id="settings-import" class="btn-import">Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js" integrity="sha384-m4eAATWFHwurgWQTBxFRh5346JXxGTucT+lJH2TcxGrE+vNBENJGasyBNnLc23ft" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" integrity="sha384-+NGfjU8KzpDLXRHduEqW+ZiJr2rIg+cidUVk7B51R5xK7cHwMKQfrdFwGdrq1Bcz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+
+    <!-- Note: Paged.js (live Document Preview pagination) is loaded fresh
+         inside an isolated <iframe> per render by PagedPreviewRenderer,
+         not here — rendering it in the main document lets this app's own
+         global CSS reset (box-sizing: border-box) corrupt its layout math. -->
+
+    <!-- Application Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* ========================================
+   Classic Theme - Traditional, Serif Fonts
+   ======================================== */
+
+/* Classic Theme Variables */
+.theme-classic {
+    --theme-primary: #8b4513;
+    --theme-primary-dark: #654321;
+    --theme-accent: #a0522d;
+    --theme-background: #fdf6e3;
+    --theme-surface: #f5ead6;
+    --theme-text: #2c1810;
+    --theme-text-light: #6b5744;
+    --theme-border: #d4c5b0;
+    --theme-code-bg: #fdf6e3;
+    --theme-code-text: #2c1810;
+    --theme-code-border: #8b4513;
+    --theme-font-family: 'Georgia', 'Times New Roman', serif;
+    --theme-font-mono: 'Courier New', Courier, monospace;
+    --theme-line-height: 1.8;
+}
+
+body.theme-classic .preview-content {
+    background-color: var(--theme-background);
+}
+
+/* Preview Content Styling for Classic Theme */
+body.theme-classic .preview-content h1,
+body.theme-classic .preview-content h2,
+body.theme-classic .preview-content h3,
+body.theme-classic .preview-content h4,
+body.theme-classic .preview-content h5,
+body.theme-classic .preview-content h6 {
+    color: var(--theme-text);
+    font-weight: 700;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    line-height: 1.4;
+    font-family: var(--theme-font-family);
+}
+
+body.theme-classic .preview-content h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px double var(--theme-primary);
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+body.theme-classic .preview-content h2 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--theme-primary);
+    padding-bottom: 0.4rem;
+}
+
+body.theme-classic .preview-content h3 {
+    font-size: 1.6rem;
+    color: var(--theme-primary);
+}
+
+body.theme-classic .preview-content h4 {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+body.theme-classic .preview-content h5 {
+    font-size: 1.1rem;
+}
+
+body.theme-classic .preview-content h6 {
+    font-size: 1rem;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Paragraphs */
+body.theme-classic .preview-content p {
+    margin-bottom: 1.2em;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+    text-align: justify;
+}
+
+body.theme-classic .preview-content p:first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Links */
+body.theme-classic .preview-content a {
+    color: var(--theme-primary);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+body.theme-classic .preview-content a:hover {
+    text-decoration-style: solid;
+    color: var(--theme-primary-dark);
+}
+
+/* Lists */
+body.theme-classic .preview-content ul,
+body.theme-classic .preview-content ol {
+    margin: 1.2em 0;
+    padding-left: 2.5em;
+}
+
+body.theme-classic .preview-content li {
+    margin: 0.6em 0;
+    color: var(--theme-text);
+}
+
+body.theme-classic .preview-content ul > li {
+    list-style-type: square;
+}
+
+/* Code Blocks */
+body.theme-classic .preview-content code {
+    background-color: #eee8d5;
+    color: #b58900;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2rem;
+    font-family: var(--theme-font-mono);
+    font-size: 0.9em;
+    border: 1px solid var(--theme-border);
+}
+
+body.theme-classic .preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border: 2px solid var(--code-theme-border, var(--theme-code-border));
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-classic .preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.875rem;
+    border: none;
+}
+
+/* Blockquotes */
+body.theme-classic .preview-content blockquote {
+    border-left: 5px solid var(--theme-primary);
+    padding: 1.2rem 2rem;
+    margin: 2em 0;
+    background-color: var(--theme-surface);
+    color: var(--theme-text-light);
+    font-style: italic;
+    position: relative;
+}
+
+body.theme-classic .preview-content blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--theme-border);
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    line-height: 1;
+}
+
+body.theme-classic .preview-content blockquote p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Tables */
+body.theme-classic .preview-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5em 0;
+    border: 2px solid var(--theme-primary);
+    border-radius: 0;
+}
+
+body.theme-classic .preview-content th {
+    background-color: var(--theme-primary);
+    color: var(--theme-background);
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--theme-primary-dark);
+}
+
+body.theme-classic .preview-content td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+body.theme-classic .preview-content tr:nth-child(even) {
+    background-color: var(--theme-surface);
+}
+
+body.theme-classic .preview-content tr:last-child td {
+    border-bottom: none;
+}
+
+/* Horizontal Rules */
+body.theme-classic .preview-content hr {
+    border: none;
+    border-top: 3px double var(--theme-primary);
+    margin: 3em 0;
+}
+
+/* Images */
+body.theme-classic .preview-content img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--theme-primary);
+    margin: 1.5em auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Strong and Emphasis */
+body.theme-classic .preview-content strong {
+    font-weight: 700;
+    color: var(--theme-text);
+}
+
+body.theme-classic .preview-content em {
+    font-style: italic;
+    color: var(--theme-text);
+}
+
+/* Strikethrough */
+body.theme-classic .preview-content del {
+    text-decoration: line-through;
+    color: var(--theme-text-light);
+}
+
+/* Mermaid Diagrams */
+body.theme-classic .preview-content .mermaid {
+    margin: 2em 0;
+    text-align: center;
+    background-color: var(--theme-surface);
+    padding: 2rem;
+    border: 2px solid var(--theme-primary);
+}

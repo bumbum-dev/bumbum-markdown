@@ -1,0 +1,237 @@
+/**
+ * Windows 95 Window Styles
+ * Retro window component with draggable title bar and 3D borders
+ */
+
+.win95-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  
+  background-color: var(--win95-button-face);
+  
+  /* 3D Raised Border */
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--win95-button-shadow),
+    var(--shadow-window);
+  
+  overflow: hidden;
+}
+
+.win95-window--active {
+  /* Active windows appear on top */
+  z-index: 100;
+}
+
+/* Title Bar */
+.win95-window__titlebar {
+  height: var(--titlebar-height);
+  padding: 2px 2px 2px 4px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  cursor: move;
+  user-select: none;
+  
+}
+
+.win95-window__title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0; 
+}
+
+.win95-window__icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.win95-window__title span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Window Controls (Minimize, Maximize, Close) */
+.win95-window__controls {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.win95-window__control-btn {
+  width: 16px;
+  height: 14px;
+  padding: 0;
+  
+  background-color: var(--win95-button-face);
+  
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--win95-button-shadow);
+  
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--win95-black);
+}
+
+.win95-window__control-btn:hover {
+  background-color: var(--win95-button-light);
+}
+
+.win95-window__control-btn:active {
+  border-top-color: var(--win95-button-dark-shadow);
+  border-left-color: var(--win95-button-dark-shadow);
+  border-right-color: var(--win95-button-highlight);
+  border-bottom-color: var(--win95-button-highlight);
+  box-shadow: 
+    inset -1px -1px 0px var(--win95-white),
+    inset 1px 1px 0px var(--win95-button-shadow);
+}
+
+.win95-window__control-icon {
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Window Content Area */
+.win95-window__content {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+  background-color: var(--win95-white);
+  
+  /* Inner border for content area */
+  border: 2px solid;
+  border-top-color: var(--win95-button-shadow);
+  border-left-color: var(--win95-button-shadow);
+  border-right-color: var(--win95-button-highlight);
+  border-bottom-color: var(--win95-button-highlight);
+}
+
+/* Resize Handle (bottom-right corner) */
+.win95-window__resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  
+  /* Grip pattern */
+  background-image: 
+    linear-gradient(135deg, transparent 0%, transparent 46%, var(--win95-button-shadow) 46%, var(--win95-button-shadow) 54%, transparent 54%),
+    linear-gradient(135deg, transparent 0%, transparent 46%, var(--win95-white) 46%, var(--win95-white) 54%, transparent 54%);
+  background-size: 4px 4px;
+  background-position: 0 0, 1px 1px;
+}
+
+/* Scrollbar Styling (Windows 95 style) */
+.win95-window__content::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.win95-window__content::-webkit-scrollbar-track {
+  background: var(--win95-white);
+  border: 1px solid var(--win95-button-shadow);
+}
+
+.win95-window__content::-webkit-scrollbar-thumb {
+  background-color: var(--win95-button-face);
+  border: 2px solid;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+}
+
+.win95-window__content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--win95-button-light);
+}
+
+.win95-window__content::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  background-color: var(--win95-button-face);
+  border: 2px solid;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+}
+
+.win95-window__content::-webkit-scrollbar-button:hover {
+  background-color: var(--win95-button-light);
+}
+
+/* Title bar gradients */
+.titlebar-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--win95-blue-light) 0%,
+    var(--win95-blue) 100%
+  );
+}
+
+.titlebar-gradient-inactive {
+  background: linear-gradient(
+    180deg,
+    var(--win95-gray-light) 0%,
+    var(--win95-gray-dark) 100%
+  );
+}
+
+/* Text utilities for title */
+.text-title {
+  font-family: var(--font-system);
+  font-size: var(--font-size-normal);
+  font-weight: bold;
+  color: var(--win95-white);
+}
+
+.titlebar-gradient-inactive .text-title {
+  color: var(--win95-gray-darker);
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.retro-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+}

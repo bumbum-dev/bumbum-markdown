@@ -1,0 +1,428 @@
+/**
+ * File Manager Component Styles - Windows 95 Retro
+ * Styles for file dialogs, controls, and drag & drop
+ */
+
+/* File Controls in Header */
+.file-controls {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.btn-icon {
+    padding: 3px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    white-space: nowrap;
+    height: 23px;
+    min-width: 75px;
+}
+
+.btn-icon:hover {
+    /* No hover effect in Win95 */
+}
+
+.btn-icon:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.divider {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to right, 
+        var(--win95-gray-dark, #808080) 0%, var(--win95-gray-dark, #808080) 50%, 
+        var(--win95-white, #ffffff) 50%, var(--win95-white, #ffffff) 100%);
+    margin: 0 4px;
+}
+
+/* Drag and Drop Styles */
+.markdown-editor.drag-over {
+    border: 2px solid var(--win95-blue, #000080);
+    background: var(--win95-white, #ffffff);
+}
+
+/* File Dialog Overlay */
+.file-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.file-dialog-content {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dialog Header */
+.file-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    background: var(--win95-blue, #000080);
+    background: linear-gradient(to right, #000080, #1084d0);
+}
+
+.file-dialog-header h3 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-white, #ffffff);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    padding: 2px 4px;
+}
+
+.file-dialog-close {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    cursor: pointer;
+    padding: 0;
+    width: 16px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    line-height: 1;
+}
+
+.file-dialog-close:hover {
+    /* No hover effect */
+}
+
+.file-dialog-close:active {
+    border-color: var(--win95-black, #000000) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-black, #000000);
+    padding: 1px 0 0 1px;
+}
+
+.file-dialog-body {
+    padding: 12px;
+    overflow-y: auto;
+    flex: 1;
+    background: var(--win95-white, #ffffff);
+}
+
+/* Custom Scrollbar for Dialog */
+.file-dialog-body::-webkit-scrollbar {
+    width: 16px;
+}
+
+.file-dialog-body::-webkit-scrollbar-track {
+    background: var(--win95-white, #ffffff);
+}
+
+.file-dialog-body::-webkit-scrollbar-thumb {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+}
+
+.file-dialog-body::-webkit-scrollbar-button {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    height: 16px;
+}
+
+/* Project List */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+}
+
+.project-item:hover {
+    /* No hover effect */
+}
+
+.project-info h4 {
+    margin: 0 0 2px 0;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.project-info p {
+    margin: 0;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.project-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.btn-load,
+.btn-delete {
+    padding: 3px 8px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    height: 23px;
+    min-width: 75px;
+}
+
+.btn-load {
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+}
+
+.btn-load:hover {
+    /* No hover effect */
+}
+
+.btn-load:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.btn-delete {
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+}
+
+.btn-delete:hover {
+    /* No hover effect */
+}
+
+.btn-delete:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+/* Template List */
+.template-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.template-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+}
+
+.template-item:hover {
+    /* No hover effect */
+}
+
+.template-info {
+    flex: 1;
+}
+
+.template-info h4 {
+    margin: 0 0 2px 0;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.template-info p {
+    margin: 0;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.btn-use-template {
+    padding: 3px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    white-space: nowrap;
+    height: 23px;
+    min-width: 75px;
+}
+
+.btn-use-template:hover {
+    /* No hover effect */
+}
+
+.btn-use-template:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 24px 16px;
+    color: var(--win95-gray-dark, #808080);
+}
+
+.empty-state-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+}
+
+.empty-state h4 {
+    margin: 0 0 4px 0;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .file-controls {
+        flex-wrap: wrap;
+    }
+
+    .btn-icon {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
+    .file-dialog-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .file-dialog-header {
+        padding: 2px;
+    }
+
+    .file-dialog-body {
+        padding: 8px;
+    }
+
+    .project-item,
+    .template-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .project-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* Small Screens - Compact File Controls */
+@media (max-width: 576px) {
+    .file-controls {
+        display: none;
+    }
+
+    .file-menu-toggle {
+        display: block;
+    }
+}
+
+/* Auto-save Indicator */
+.autosave-indicator {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.autosave-indicator.show {
+    opacity: 1;
+}
+
+/* File Drop Zone Hint */
+.drop-zone-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.markdown-editor.drag-over + .drop-zone-hint {
+    opacity: 1;
+}
+
+.drop-zone-hint-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.drop-zone-hint p {
+    margin: 0;
+    color: var(--win95-blue, #000080);
+    font-weight: bold;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}

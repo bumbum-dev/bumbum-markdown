@@ -1,0 +1,150 @@
+/**
+ * Document Toolbar Component
+ * Retro-styled toolbar for quick access to document operations
+ */
+
+.document-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs, 4px);
+    padding: var(--spacing-xs, 4px);
+    background: var(--color-surface, #c0c0c0);
+    border-bottom: var(--border-width, 1px) solid var(--color-border-dark, #808080);
+    flex-wrap: wrap;
+}
+
+.document-toolbar-spacer {
+    flex: 1;
+    min-width: 8px;
+}
+
+.document-toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs, 4px);
+}
+
+.document-toolbar-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--color-border-dark, #808080);
+    margin: 0 var(--spacing-xs, 4px);
+    box-shadow: 1px 0 0 var(--color-border-light, #ffffff);
+}
+
+/* Toolbar Button Styles */
+.toolbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    font-family: var(--font-primary);
+    font-size: 11px;
+    background: var(--color-surface, #c0c0c0);
+    border: 1px solid;
+    border-color: var(--color-border-light, #ffffff) var(--color-border-dark, #808080) var(--color-border-dark, #808080) var(--color-border-light, #ffffff);
+    color: var(--color-text, #000000);
+    cursor: pointer;
+    outline: none;
+    min-height: 23px;
+    white-space: nowrap;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+    background: #d4d0c8;
+}
+
+.toolbar-btn:active:not(:disabled) {
+    border-color: var(--color-border-dark, #808080) var(--color-border-light, #ffffff) var(--color-border-light, #ffffff) var(--color-border-dark, #808080);
+    padding: 5px 7px 3px 9px;
+}
+
+.toolbar-btn:disabled {
+    color: var(--color-border-dark, #808080);
+    cursor: not-allowed;
+}
+
+.toolbar-btn:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
+/* Theme Selector in Toolbar */
+.toolbar-theme-selector {
+    font-family: var(--font-primary);
+    font-size: 11px;
+    padding: 3px 20px 3px 4px;
+    background: #ffffff;
+    border: 1px solid;
+    border-color: var(--color-border-dark, #808080) var(--color-border-light, #ffffff) var(--color-border-light, #ffffff) var(--color-border-dark, #808080);
+    color: var(--color-text, #000000);
+    cursor: pointer;
+    outline: none;
+    min-height: 21px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path d="M2 4 L6 8 L10 4 Z" fill="%23000000"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    background-size: 12px;
+}
+
+.toolbar-theme-selector:hover {
+    background-color: #f0f0f0;
+}
+
+.toolbar-theme-selector:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -2px;
+}
+
+/* Label for theme selector */
+.toolbar-label {
+    font-family: var(--font-primary);
+    font-size: 11px;
+    color: var(--color-text, #000000);
+    margin-right: 4px;
+}
+
+/* Primary action button (Export PDF) */
+.toolbar-btn-primary {
+    background: var(--win95-active-title-start, #000080);
+    color: #ffffff;
+    font-weight: bold;
+    border-color: #000050 #0000a0 #0000a0 #000050;
+}
+
+.toolbar-btn-primary:hover:not(:disabled) {
+    background: #0000a0;
+}
+
+.toolbar-btn-primary:active:not(:disabled) {
+    background: #000060;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .document-toolbar {
+        gap: 2px;
+        padding: 2px;
+    }
+    
+    .toolbar-btn {
+        padding: 3px 6px;
+        font-size: 10px;
+        min-height: 20px;
+    }
+    
+    .toolbar-theme-selector {
+        font-size: 10px;
+        padding: 2px 18px 2px 3px;
+        min-height: 18px;
+    }
+    
+    .toolbar-label {
+        font-size: 10px;
+    }
+    
+    .document-toolbar-divider {
+        height: 16px;
+    }
+}

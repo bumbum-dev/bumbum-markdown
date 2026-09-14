@@ -1,0 +1,203 @@
+/**
+ * RetroLayout Styles
+ * Windows 95 desktop aesthetic
+ */
+
+.retro-layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: var(--font-primary);
+    background: var(--win95-desktop);
+}
+
+.retro-desktop {
+    flex: 1;
+    background: var(--win95-desktop); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+    position: absolute;
+    top: var(--spacing-md, 8px);
+    left: var(--spacing-md, 8px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg, 16px);
+    z-index: 1;
+}
+
+/* Main Window Content Area */
+.retro-main-window {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface, #c0c0c0);
+}
+
+.retro-main-window.minimized {
+    display: none;
+}
+
+/* Window content wrapper */
+.retro-window-content {
+    flex: 1;
+    overflow: auto;
+    background: var(--color-surface, #c0c0c0);
+    color: var(--color-text, #000000);
+}
+
+.retro-window-content label,
+.retro-window-content p,
+.retro-window-content h1,
+.retro-window-content h2,
+.retro-window-content h3 {
+    color: var(--color-text, #000000);
+}
+
+/* Custom scrollbar for retro content */
+.retro-window-content::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    background: var(--color-surface, #c0c0c0);
+}
+
+.retro-window-content::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    border: var(--border-width, 1px) solid var(--color-border-dark, #808080);
+}
+
+.retro-window-content::-webkit-scrollbar-thumb {
+    background: var(--color-surface, #c0c0c0);
+    border: var(--border-width, 1px) solid var(--color-border-dark, #808080);
+    border-right-color: var(--color-border-light, #ffffff);
+    border-bottom-color: var(--color-border-light, #ffffff);
+}
+
+.retro-window-content::-webkit-scrollbar-thumb:hover {
+    background: #D4D0C8;
+}
+
+.retro-window-content::-webkit-scrollbar-button {
+    background: var(--color-surface, #c0c0c0);
+    border: var(--border-width, 1px) solid var(--color-border-dark, #808080);
+    border-right-color: var(--color-border-light, #ffffff);
+    border-bottom-color: var(--color-border-light, #ffffff);
+    width: 16px;
+    height: 16px;
+}
+
+.retro-window-content::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M8 6 L4 10 L12 10 Z" fill="%23000000"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.retro-window-content::-webkit-scrollbar-button:vertical:increment {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M8 10 L4 6 L12 6 Z" fill="%23000000"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.retro-window-content::-webkit-scrollbar-button:horizontal:decrement {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M6 8 L10 4 L10 12 Z" fill="%23000000"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.retro-window-content::-webkit-scrollbar-button:horizontal:increment {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M10 8 L6 4 L6 12 Z" fill="%23000000"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Integrate existing app styles within retro layout */
+.retro-window-content .app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+/* Hide original header and footer when in retro mode */
+.retro-mode .app-header,
+.retro-mode .app-footer {
+    display: none;
+}
+
+/* Adjust main content to fill window */
+.retro-mode .main-content {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* System notification area (top right) */
+.retro-system-info {
+    position: absolute;
+    top: var(--spacing-md, 8px);
+    right: var(--spacing-md, 8px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs, 4px);
+}
+
+.retro-user-info {
+    font-family: var(--font-primary);
+    font-size: 11px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* Window manager container */
+.retro-windows-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.retro-windows-container > * {
+    pointer-events: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .desktop-icons {
+        gap: var(--spacing-sm, 8px);
+    }
+    
+    .retro-system-info {
+        font-size: 10px;
+    }
+}
+
+/* Overlay for modal dialogs */
+.retro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+}
+
+.retro-overlay.active {
+    display: block;
+}
+

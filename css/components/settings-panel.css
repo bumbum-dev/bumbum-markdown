@@ -1,0 +1,660 @@
+/**
+ * Settings Panel Styles - Windows 95 Retro
+ */
+
+/* Overlay */
+#settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+#settings-overlay.visible {
+    display: block;
+}
+
+/* Settings Panel */
+#settings-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: var(--win95-gray, #c0c0c0);
+    border-left: 2px solid;
+    border-left-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#settings-panel.open {
+    right: 0;
+}
+
+/* Settings Header */
+.settings-header {
+    position: sticky;
+    top: 0;
+    background: var(--win95-blue, #000080);
+    color: white;
+    padding: 3px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    height: 23px;
+}
+
+.settings-header h2 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.settings-close {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    cursor: pointer;
+    padding: 2px;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.settings-close:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 3px 1px 1px 3px;
+}
+
+/* Settings Content */
+.settings-content {
+    padding: 8px;
+}
+
+/* Embedded mode: hosted inside a RetroWindow instead of the fixed slide-in drawer */
+.settings-content-embedded {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Settings Section */
+.settings-section {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.settings-section h3 {
+    margin: 0 0 8px 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.settings-section h3::before {
+    content: '';
+    width: 2px;
+    height: 11px;
+    background: var(--win95-blue, #000080);
+}
+
+/* Control Group */
+.control-group {
+    margin-bottom: 12px;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    color: var(--win95-black, #000000);
+    margin-bottom: 4px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.control-group .help-text {
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    margin-top: 2px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Checkbox Labels */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    margin: 0;
+    background: white;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"><path fill="black" d="M2 7 L5 10 L11 3 L10 2 L5 8 L3 6 Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-label span {
+    font-size: 11px;
+    font-weight: normal;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Input Controls */
+.control-group input[type="number"],
+.control-group input[type="text"],
+.control-group input[type="date"],
+.control-group select {
+    width: 100%;
+    padding: 2px 4px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    font-size: 11px;
+    background: white;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    height: 21px;
+    box-sizing: border-box;
+}
+
+.control-group input[type="number"]:focus,
+.control-group input[type="text"]:focus,
+.control-group input[type="date"]:focus,
+.control-group select:focus {
+    outline: 1px dotted var(--win95-black, #000000);
+    outline-offset: -3px;
+}
+
+.control-group select {
+    padding-right: 20px;
+}
+
+/* Range Sliders */
+.range-control {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.range-control input[type="range"] {
+    flex: 1;
+    height: 6px;
+    background: var(--win95-gray, #c0c0c0);
+    outline: none;
+    -webkit-appearance: none;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.range-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 11px;
+    height: 21px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+}
+
+.range-control input[type="range"]::-webkit-slider-thumb:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.range-control input[type="range"]::-moz-range-thumb {
+    width: 11px;
+    height: 21px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+}
+
+.range-control input[type="range"]::-moz-range-thumb:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.range-value {
+    min-width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    padding: 2px 4px;
+    background: white;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Margin Grid */
+.margin-grid {
+    display: grid;
+    gap: 8px;
+}
+
+.margin-control {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.margin-control label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    text-transform: uppercase;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.margin-control label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--win95-blue, #000080);
+}
+
+/* Page Size Options */
+.page-size-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.page-size-option {
+    position: relative;
+}
+
+.page-size-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.page-size-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    background: var(--win95-gray, #c0c0c0);
+}
+
+.page-size-label:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 9px 3px 7px 5px;
+}
+
+.page-size-option input[type="radio"]:checked + .page-size-label {
+    border: 3px solid var(--win95-black, #000000);
+    padding: 7px 3px;
+}
+
+.page-size-icon {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.page-size-name {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.page-size-dimensions {
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    margin-top: 2px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Action Buttons */
+.settings-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.settings-actions button {
+    flex: 1;
+    padding: 3px 8px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: normal;
+    cursor: pointer;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    height: 23px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.settings-actions button:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.btn-reset,
+.btn-export,
+.btn-import {
+    /* Win95 buttons don't have different colors - use icons/text instead */
+}
+
+/* Settings Toggle Button (in header) */
+#settings-toggle {
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 23px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+#settings-toggle:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+#settings-toggle::before {
+    content: '⚙️';
+    font-size: 11px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #settings-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .settings-content {
+        padding: 4px;
+    }
+    
+    .page-size-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scrollbar Styling - Win95 Style */
+#settings-panel::-webkit-scrollbar {
+    width: 16px;
+}
+
+#settings-panel::-webkit-scrollbar-track {
+    background: var(--win95-gray, #c0c0c0);
+}
+
+#settings-panel::-webkit-scrollbar-thumb {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+}
+
+#settings-panel::-webkit-scrollbar-button {
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    height: 16px;
+}
+
+/* Custom CSS Section */
+.custom-css-textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 4px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    font-family: 'Courier New', 'Monaco', monospace;
+    font-size: 11px;
+    background: white;
+    color: var(--win95-black, #000000);
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.custom-css-textarea:focus {
+    outline: 1px dotted var(--win95-black, #000000);
+    outline-offset: -3px;
+}
+
+.custom-css-textarea::placeholder {
+    color: var(--win95-gray-dark, #808080);
+}
+
+.custom-css-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.custom-css-actions button {
+    flex: 1;
+    padding: 3px 8px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: normal;
+    cursor: pointer;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    height: 23px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.custom-css-actions button:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.btn-apply,
+.btn-clear {
+    /* All buttons look the same in Win95 */
+}
+
+/* License Activation Styles */
+.license-key-input {
+    font-family: 'Courier New', 'Monaco', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.license-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.license-actions button {
+    flex: 1;
+    padding: 3px 8px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    height: 23px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.license-actions button:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.license-actions .btn-primary,
+.license-actions .btn-secondary,
+.license-actions .btn-danger {
+    /* All buttons have same styling in Win95 */
+}
+
+.license-status-box {
+    padding: 8px;
+    border: 2px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.license-status-box.license-active {
+    background: white;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.license-status-box.license-inactive {
+    background: white;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.license-status-box.license-expired {
+    background: white;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.license-status-icon {
+    font-size: 24px;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.license-active .license-status-icon {
+    color: green;
+}
+
+.license-inactive .license-status-icon {
+    color: red;
+}
+
+.license-expired .license-status-icon {
+    color: orange;
+}
+
+.license-status-content {
+    flex: 1;
+}
+
+.license-status-content h4 {
+    margin: 0 0 4px 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.license-tier-display,
+.license-key-display,
+.license-expires-display {
+    margin: 2px 0;
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.license-tier-display strong,
+.license-key-display code {
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+}
+
+.license-key-display code {
+    background: white;
+    padding: 2px 4px;
+    font-family: 'Courier New', 'Monaco', monospace;
+    font-size: 11px;
+    border: 1px solid var(--win95-gray-dark, #808080);
+}
+
+.license-expires-display {
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    margin-top: 4px;
+}

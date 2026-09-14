@@ -1,0 +1,22 @@
+/**
+ * Block Resize Styles
+ * Drag handle overlay for resizing code blocks, Mermaid diagrams, and
+ * display math in the simple/live preview (see BlockResizer.js).
+ */
+
+.block-resize-handle {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    width: 10px;
+    height: 10px;
+    background: var(--win95-blue, #000080);
+    border: 1px solid var(--win95-white, #ffffff);
+    cursor: nwse-resize;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+}
+
+.block-resize-wrapper:hover .block-resize-handle {
+    opacity: 1;
+}

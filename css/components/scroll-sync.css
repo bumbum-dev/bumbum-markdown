@@ -1,0 +1,160 @@
+/**
+ * Scroll Synchronization Styles - Windows 95 Retro Edition
+ * Visual feedback for synchronized scrolling
+ */
+
+/* ===========================
+   Scroll Sync Highlight
+   =========================== */
+
+/* Active highlight for synchronized elements */
+.scroll-sync-highlight {
+    background: var(--win95-blue, #000080);
+    color: var(--win95-white, #ffffff);
+    border-left: 3px solid var(--win95-black, #000000);
+    margin-left: -3px;
+    padding-left: 3px;
+}
+
+/* ===========================
+   Scroll Sync Button
+   =========================== */
+
+/* Scroll sync toggle button */
+#editor-scroll-sync-toggle {
+    position: relative;
+    cursor: pointer;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    padding: 3px 8px;
+    height: 23px;
+    color: var(--win95-black, #000000);
+}
+
+#editor-scroll-sync-toggle.active {
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px; /* Pressed state */
+}
+
+#editor-scroll-sync-toggle.active::after {
+    display: none; /* No underline indicator in Win95 */
+}
+
+#editor-scroll-sync-toggle:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+/* ===========================
+   Smooth Scrolling
+   =========================== */
+
+/* No smooth scroll in Win95 - instant jumps */
+.preview-content {
+    scroll-behavior: auto;
+}
+
+/* Editor instant scroll */
+.markdown-editor {
+    scroll-behavior: auto;
+}
+
+/* Already instant */
+.preview-content.no-smooth-scroll,
+.markdown-editor.no-smooth-scroll {
+    scroll-behavior: auto;
+}
+
+/* ===========================
+   Sync Indicator (Optional)
+   =========================== */
+
+/* Visual indicator shown during sync - Win95 style message box */
+.scroll-sync-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    padding: 8px 12px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-darker, #404040) 
+                  var(--win95-gray-darker, #404040) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: normal;
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+}
+
+.scroll-sync-indicator.visible {
+    display: block;
+}
+
+.scroll-sync-indicator::before {
+    content: '🔗 ';
+    margin-right: 4px;
+}
+
+/* ===========================
+   Performance Optimizations
+   =========================== */
+
+.scroll-sync-highlight {
+    contain: layout style paint;
+}
+
+/* ===========================
+   Accessibility
+   =========================== */
+
+/* Win95 is already high contrast */
+@media (prefers-contrast: high) {
+    .scroll-sync-highlight {
+        border-left-width: 4px;
+        margin-left: -4px;
+        padding-left: 4px;
+    }
+}
+
+/* ===========================
+   Mobile & Responsive
+   =========================== */
+
+/* Adjust highlight on smaller screens */
+@media (max-width: 768px) {
+    .scroll-sync-highlight {
+        border-left-width: 2px;
+        margin-left: -2px;
+        padding-left: 2px;
+    }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+/* Remove highlights when printing */
+@media print {
+    .scroll-sync-highlight {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    #editor-scroll-sync-toggle {
+        display: none;
+    }
+
+    .scroll-sync-indicator {
+        display: none !important;
+    }
+}

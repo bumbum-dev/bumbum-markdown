@@ -1,0 +1,165 @@
+/**
+ * Notification System Styles - Windows 95 Retro
+ * Message box notifications for user feedback
+ */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 0;
+    font-size: 11px;
+    font-weight: normal;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Title bar for notification */
+.notification::before {
+    content: attr(data-title);
+    display: block;
+    background: var(--win95-blue, #000080);
+    color: white;
+    padding: 3px 4px;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+}
+
+/* Content area */
+.notification {
+    padding-bottom: 8px;
+}
+
+/* Success notification */
+.notification.success::before {
+    content: '✓ Success';
+}
+
+.notification.success {
+    /* Use standard Win95 gray background */
+}
+
+/* Error notification */
+.notification.error::before {
+    content: '✕ Error';
+}
+
+.notification.error {
+    /* Use standard Win95 gray background */
+}
+
+/* Info notification */
+.notification.info::before {
+    content: 'ℹ Information';
+}
+
+.notification.info {
+    /* Use standard Win95 gray background */
+}
+
+/* Warning notification */
+.notification.warning::before {
+    content: '⚠ Warning';
+}
+
+.notification.warning {
+    /* Use standard Win95 gray background */
+}
+
+/* Message content wrapper */
+.notification > * {
+    padding: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* Icon indicator on left side */
+.notification.success > *::before {
+    content: '✓';
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    min-width: 32px;
+    text-align: center;
+}
+
+.notification.error > *::before {
+    content: '✕';
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    min-width: 32px;
+    text-align: center;
+}
+
+.notification.info > *::before {
+    content: 'ℹ';
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+    min-width: 32px;
+    text-align: center;
+}
+
+.notification.warning > *::before {
+    content: '⚠';
+    font-size: 24px;
+    font-weight: bold;
+    color: orange;
+    min-width: 32px;
+    text-align: center;
+}
+
+/* Close button */
+.notification-close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.notification-close:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 1px 0 0 1px;
+}
+
+/* Stack notifications */
+.notification:nth-child(n+2) {
+    top: calc(20px + (100px * (var(--notification-index, 1))));
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .notification {
+        left: 20px;
+        right: 20px;
+        min-width: auto;
+    }
+}

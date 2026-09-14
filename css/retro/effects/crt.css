@@ -1,0 +1,135 @@
+/**
+ * CRT Monitor Effect
+ * Adds screen curvature, vignette, and subtle flicker
+ */
+
+.retro-crt-effect {
+  position: relative;
+}
+
+/* Vignette effect */
+.retro-crt-effect::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Subtle screen glow */
+.retro-crt-effect::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9996;
+  background: rgba(255, 255, 255, 0.02);
+  animation: crt-flicker 4s infinite alternate;
+}
+
+@keyframes crt-flicker {
+  0% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.97;
+  }
+}
+
+/* Screen curvature effect (subtle) */
+.retro-crt-effect .retro-desktop {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* RGB separation (chromatic aberration) - very subtle */
+.retro-crt-effect .retro-window {
+  position: relative;
+}
+
+.retro-crt-effect .retro-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02) 0%,
+    transparent 50%,
+    rgba(0, 0, 255, 0.02) 100%
+  );
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* Subtle horizontal interference lines */
+@keyframes crt-interference {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.retro-crt-effect .retro-desktop::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  animation: crt-interference 7s linear infinite;
+  pointer-events: none;
+  z-index: 9995;
+}
+
+/* Screen refresh effect (very subtle) */
+.retro-crt-effect {
+  animation: crt-refresh 0.08s infinite;
+}
+
+@keyframes crt-refresh {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.01);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .retro-crt-effect::after,
+  .retro-crt-effect .retro-desktop::after,
+  .retro-crt-effect {
+    animation: none !important;
+  }
+}
+
+/* Optional: Corner glow effect */
+.retro-crt-effect .retro-layout {
+  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.02);
+}

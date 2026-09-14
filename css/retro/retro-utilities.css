@@ -1,0 +1,605 @@
+/**
+ * Windows 95 Retro Utilities
+ * 3D borders, button states, panels, and common component styles
+ */
+
+/* ========================================
+   3D Border Effects
+   ======================================== */
+
+/* Raised Border (buttons, windows, panels) */
+.border-raised {
+  border-style: solid;
+  border-width: var(--border-width);
+  border-top-color: var(--border-raised-light);
+  border-left-color: var(--border-raised-light);
+  border-right-color: var(--border-raised-darker);
+  border-bottom-color: var(--border-raised-darker);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--border-raised-dark);
+}
+
+/* Sunken Border (input fields, panels, pressed buttons) */
+.border-sunken {
+  border-style: solid;
+  border-width: var(--border-width);
+  border-top-color: var(--border-sunken-light);
+  border-left-color: var(--border-sunken-light);
+  border-right-color: var(--border-sunken-dark);
+  border-bottom-color: var(--border-sunken-dark);
+  box-shadow: 
+    inset -1px -1px 0px var(--win95-gray-light);
+}
+
+/* Flat Border (neutral) */
+.border-flat {
+  border: var(--border-thin) solid var(--win95-black);
+}
+
+/* Field Border (text inputs, textareas) */
+.border-field {
+  border: var(--border-width) solid;
+  border-color: var(--win95-gray-darker) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-darker);
+}
+
+/* Groove Border (fieldsets) */
+.border-groove {
+  border: var(--border-width) groove var(--win95-button-shadow);
+}
+
+/* Ridge Border (decorative) */
+.border-ridge {
+  border: var(--border-width) ridge var(--win95-button-shadow);
+}
+
+/* ========================================
+   Panel & Window Backgrounds
+   ======================================== */
+
+.panel-background,
+.retro-panel {
+  background-color: var(--win95-button-face);
+  color: var(--color-text);
+}
+
+.panel-sunken {
+  background-color: var(--win95-white);
+  border: var(--border-width) solid;
+  border-color: var(--border-sunken-light) var(--border-sunken-dark) 
+                var(--border-sunken-dark) var(--border-sunken-light);
+  box-shadow: inset -1px -1px 0px var(--win95-gray-light);
+}
+
+.panel-raised {
+  background-color: var(--win95-button-face);
+  border: var(--border-width) solid;
+  border-color: var(--border-raised-light) var(--border-raised-dark) 
+                var(--border-raised-dark) var(--border-raised-light);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--border-raised-dark);
+}
+
+/* ========================================
+   Title Bar Gradients
+   ======================================== */
+
+.titlebar-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--win95-blue-gradient-start) 0%,
+    var(--win95-blue-gradient-end) 100%
+  );
+  color: var(--win95-white);
+}
+
+.titlebar-gradient-inactive {
+  background: linear-gradient(
+    90deg,
+    var(--win95-gray-dark) 0%,
+    var(--win95-gray-light) 100%
+  );
+  color: var(--win95-gray-darker);
+}
+
+/* ========================================
+   Button States
+   ======================================== */
+
+.button-state-normal {
+  background: var(--win95-button-face);
+  border: var(--border-width) solid;
+  border-color: var(--border-light) var(--border-dark) 
+                var(--border-dark) var(--border-light);
+  box-shadow: var(--shadow-button);
+}
+
+.button-state-hover {
+  background: var(--win95-button-light);
+}
+
+.button-state-pressed,
+.button-state-active {
+  border-color: var(--border-dark) var(--border-light) 
+                var(--border-light) var(--border-dark);
+  box-shadow: var(--shadow-button-pressed);
+  padding-left: calc(var(--button-padding-x) + 1px);
+  padding-top: calc(var(--button-padding-y) + 1px);
+}
+
+.button-state-disabled {
+  color: var(--win95-text-disabled);
+  text-shadow: 1px 1px 0px var(--win95-white);
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Focus Outline Utility
+   ======================================== */
+
+.focus-outline {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -4px;
+}
+
+/* ========================================
+   Desktop Background
+   ======================================== */
+
+.desktop-background {
+  background-color: var(--win95-desktop-teal);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-background-green {
+  background-color: var(--win95-desktop-green);
+}
+
+/* ========================================
+   Window Shadow
+   ======================================== */
+
+.window-shadow {
+  box-shadow: var(--shadow-window);
+}
+
+/* ========================================
+   Separator Line
+   ======================================== */
+
+.separator {
+  height: 2px;
+  border: none;
+  border-top: 1px solid var(--win95-gray-dark);
+  border-bottom: 1px solid var(--win95-white);
+  margin: var(--spacing-sm) 0;
+}
+
+.separator-vertical {
+  width: 2px;
+  height: 100%;
+  border: none;
+  border-left: 1px solid var(--win95-gray-dark);
+  border-right: 1px solid var(--win95-white);
+  margin: 0 var(--spacing-sm);
+}
+
+/* ========================================
+   Dotted Pattern Background
+   ======================================== */
+
+.dotted-pattern {
+  background-image: radial-gradient(
+    circle, 
+    var(--win95-gray-dark) 1px, 
+    transparent 1px
+  );
+  background-size: 4px 4px;
+}
+
+/* ========================================
+   Status Bar
+   ======================================== */
+
+.status-bar {
+  height: var(--statusbar-height);
+  background: var(--win95-gray);
+  border-top: var(--border-thin) solid var(--win95-white);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-sm);
+  font-size: var(--font-size-normal);
+}
+
+.status-bar-section {
+  border: var(--border-width) solid;
+  border-color: var(--win95-gray-dark) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-dark);
+  padding: 1px var(--spacing-sm);
+  margin-right: var(--spacing-sm);
+  background: var(--win95-white);
+}
+
+/* ========================================
+   Menu Bar
+   ======================================== */
+
+.menu-bar {
+  height: var(--menubar-height);
+  background: var(--win95-gray);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-xs);
+  border-bottom: var(--border-thin) solid var(--win95-white);
+}
+
+.menu-bar-item {
+  padding: var(--spacing-xs) var(--spacing-md);
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-bar-item:hover {
+  background: var(--win95-highlight);
+  color: var(--win95-highlight-text);
+}
+
+.menu-bar-item.active {
+  border: var(--border-thin) solid;
+  border-color: var(--win95-black) var(--win95-white) 
+                var(--win95-white) var(--win95-black);
+}
+
+/* ========================================
+   Tooltip
+   ======================================== */
+
+.retro-tooltip {
+  position: absolute;
+  background: #ffffcc;
+  border: 1px solid var(--win95-black);
+  padding: 2px 4px;
+  font-size: var(--font-size-small);
+  white-space: nowrap;
+  z-index: var(--z-tooltip);
+  pointer-events: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Badge/Label
+   ======================================== */
+
+.retro-badge {
+  display: inline-block;
+  padding: 1px 4px;
+  font-size: var(--font-size-small);
+  background: var(--win95-gray);
+  border: var(--border-thin) solid;
+  border-color: var(--border-light) var(--border-dark) 
+                var(--border-dark) var(--border-light);
+}
+
+.retro-badge-primary {
+  background: var(--win95-blue);
+  color: var(--win95-white);
+}
+
+.retro-badge-success {
+  background: #008000;
+  color: var(--win95-white);
+}
+
+.retro-badge-warning {
+  background: #ffff00;
+  color: var(--win95-black);
+}
+
+.retro-badge-error {
+  background: #ff0000;
+  color: var(--win95-white);
+}
+
+/* ========================================
+   Progress Bar
+   ======================================== */
+
+.retro-progress {
+  height: 20px;
+  background: var(--win95-white);
+  border: var(--border-width) solid;
+  border-color: var(--win95-gray-dark) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-dark);
+  padding: 2px;
+}
+
+.retro-progress-bar {
+  height: 100%;
+  background: var(--win95-blue);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--win95-blue) 0px,
+    var(--win95-blue) 8px,
+    var(--win95-blue-light) 8px,
+    var(--win95-blue-light) 16px
+  );
+  transition: width var(--transition-normal);
+}
+
+/* ========================================
+   Checkbox (Custom)
+   ======================================== */
+
+.retro-checkbox {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: var(--win95-white);
+  border: var(--border-thin) solid;
+  border-color: var(--win95-gray-darker) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-darker);
+  position: relative;
+  cursor: pointer;
+}
+
+.retro-checkbox.checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--win95-black);
+}
+
+/* ========================================
+   Radio Button (Custom)
+   ======================================== */
+
+.retro-radio {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--win95-white);
+  border: var(--border-thin) solid;
+  border-color: var(--win95-gray-darker) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-darker);
+  position: relative;
+  cursor: pointer;
+}
+
+.retro-radio.checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--win95-black);
+}
+
+/* ========================================
+   Slider/Range (Custom)
+   ======================================== */
+
+.retro-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--win95-gray-dark);
+  border: var(--border-thin) inset var(--win95-button-shadow);
+  outline: none;
+  cursor: pointer;
+}
+
+.retro-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--win95-button-face);
+  border: var(--border-width) solid;
+  border-color: var(--border-light) var(--border-dark) 
+                var(--border-dark) var(--border-light);
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+}
+
+.retro-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--win95-button-face);
+  border: var(--border-width) solid;
+  border-color: var(--border-light) var(--border-dark) 
+                var(--border-dark) var(--border-light);
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+}
+
+/* ========================================
+   List View
+   ======================================== */
+
+.retro-listview {
+  background: var(--win95-white);
+  border: var(--border-width) solid;
+  border-color: var(--win95-gray-dark) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-dark);
+  overflow-y: auto;
+}
+
+.retro-listview-item {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.retro-listview-item:hover {
+  background: var(--win95-gray-light);
+}
+
+.retro-listview-item.selected {
+  background: var(--win95-highlight);
+  color: var(--win95-highlight-text);
+}
+
+/* ========================================
+   Tree View
+   ======================================== */
+
+.retro-treeview {
+  background: var(--win95-white);
+  border: var(--border-width) solid;
+  border-color: var(--win95-gray-dark) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-dark);
+  padding: var(--spacing-sm);
+}
+
+.retro-treeview-item {
+  padding: var(--spacing-xs) 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.retro-treeview-item::before {
+  content: '▶';
+  display: inline-block;
+  width: 12px;
+  font-size: 8px;
+}
+
+.retro-treeview-item.expanded::before {
+  content: '▼';
+}
+
+.retro-treeview-item.leaf::before {
+  content: '';
+}
+
+/* ========================================
+   Tab Panel
+   ======================================== */
+
+.retro-tabs {
+  display: flex;
+  border-bottom: var(--border-width) solid var(--win95-gray-dark);
+}
+
+.retro-tab {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--win95-gray);
+  border: var(--border-width) solid;
+  border-color: var(--border-light) var(--border-dark) 
+                var(--win95-gray-dark) var(--border-light);
+  margin-right: -2px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  top: 2px;
+}
+
+.retro-tab:hover {
+  background: var(--win95-gray-light);
+}
+
+.retro-tab.active {
+  background: var(--win95-button-face);
+  border-bottom-color: var(--win95-button-face);
+  top: 2px;
+  z-index: 1;
+}
+
+.retro-tab-content {
+  padding: var(--spacing-md);
+  background: var(--win95-button-face);
+  border: var(--border-width) solid;
+  border-top: none;
+  border-color: var(--win95-gray-dark) var(--win95-white) 
+                var(--win95-white) var(--win95-gray-dark);
+}
+
+/* ========================================
+   Spacing Utilities
+   ======================================== */
+
+.m-0 { margin: 0; }
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+
+.mt-0 { margin-top: 0; }
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+
+.p-0 { padding: 0; }
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+
+/* ========================================
+   Text Utilities
+   ======================================== */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.text-bold { font-weight: bold; }
+.text-normal { font-weight: normal; }
+
+.text-system { font-family: var(--font-system); }
+.text-mono { font-family: var(--font-mono); }
+
+.text-small { font-size: var(--font-size-small); }
+.text-normal { font-size: var(--font-size-normal); }
+.text-large { font-size: var(--font-size-large); }
+
+/* ========================================
+   Flex Utilities
+   ======================================== */
+
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+.flex-1 { flex: 1; }
+.flex-grow { flex-grow: 1; }
+.flex-shrink { flex-shrink: 1; }
+
+/* ========================================
+   Width/Height Utilities
+   ======================================== */
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.w-auto { width: auto; }
+.h-auto { height: auto; }

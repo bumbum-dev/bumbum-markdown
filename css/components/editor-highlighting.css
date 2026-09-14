@@ -1,0 +1,107 @@
+/**
+ * Editor Syntax Highlighting - VS Code-like markdown highlighting for the
+ * raw editor (EditorHighlighter.js).
+ */
+
+.markdown-editor-highlight {
+    position: absolute;
+    inset: 0;
+    margin: 4px;
+    padding: 4px;
+    border: 2px solid;
+    border-left-color: var(--win95-gray-dark);
+    border-top-color: var(--win95-gray-dark);
+    border-right-color: var(--win95-white);
+    border-bottom-color: var(--win95-white);
+    font-family: 'Courier New', 'Fixedsys', monospace;
+    font-size: 12px;
+    line-height: 17px; /* must match .markdown-editor's line-height exactly - see css/main.css comment */
+    background-color: var(--background);
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.markdown-editor-highlight::-webkit-scrollbar {
+    width: 16px;
+    background: transparent;
+}
+
+.markdown-editor-highlight::-webkit-scrollbar-track,
+.markdown-editor-highlight::-webkit-scrollbar-thumb,
+.markdown-editor-highlight::-webkit-scrollbar-button {
+    background: transparent;
+    border-color: transparent;
+}
+
+.markdown-editor {
+    z-index: 2;
+}
+
+.markdown-editor-wrapper.highlighting-enabled .markdown-editor {
+    color: transparent;
+    background: transparent;
+    border-color: transparent;
+    caret-color: var(--win95-black, #000000);
+}
+
+.editor-panel.line-numbers-enabled .markdown-editor-highlight {
+    padding-left: 33px;
+}
+
+/* VS Code-like token colors */
+.md-marker {
+    color: #8a8a8a;
+}
+
+.md-heading {
+    font-weight: bold;
+}
+
+.md-h1 { color: #0000ff; }
+.md-h2 { color: #0033cc; }
+.md-h3 { color: #1a4fd6; }
+.md-h4 { color: #3366cc; }
+.md-h5 { color: #4d79bf; }
+.md-h6 { color: #6b8cad; }
+
+.md-bold {
+    font-weight: bold;
+}
+
+.md-italic {
+    font-style: italic;
+}
+
+.md-code {
+    font-family: 'Courier New', 'Fixedsys', monospace;
+    color: #a31515;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.md-code-block {
+    color: #333333;
+}
+
+.md-quote-marker {
+    color: #008000;
+}
+
+.md-quote {
+    color: #008000;
+    font-style: italic;
+}
+
+.md-link-text {
+    color: #0451a5;
+    text-decoration: underline;
+}
+
+.md-link-url {
+    color: #800000;
+}

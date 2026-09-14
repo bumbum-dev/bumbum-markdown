@@ -1,0 +1,210 @@
+/**
+ * Windows 95 Start Menu Styles
+ * Retro start menu popup
+ */
+
+.start-menu {
+  position: fixed;
+  bottom: var(--taskbar-height);
+  left: 2px;
+  
+  width: 200px;
+  
+  background-color: var(--win95-button-face);
+  
+  /* Raised 3D border */
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--win95-button-shadow),
+    2px 2px 8px rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  
+  z-index: 10001;
+  
+  font-family: var(--font-system);
+  font-size: var(--font-size-normal);
+  
+  user-select: none;
+}
+
+/* Menu Items Container */
+.start-menu__items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+/* Individual Menu Item */
+.start-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 4px 8px;
+  min-height: 32px;
+  
+  background-color: transparent;
+  border: none;
+  
+  cursor: pointer;
+  
+  color: var(--win95-black);
+  text-align: left;
+  
+  transition: none;
+}
+
+.start-menu__item:hover {
+  background-color: var(--win95-highlight);
+  color: var(--win95-highlight-text);
+}
+
+.start-menu__item:active {
+  background-color: var(--win95-blue);
+}
+
+.start-menu__item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 16px;
+}
+
+.start-menu__item-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Menu Separator */
+.start-menu__separator {
+  height: 0;
+  margin: 4px 2px;
+  
+  border-top: 1px solid var(--win95-button-shadow);
+  border-bottom: 1px solid var(--win95-button-highlight);
+}
+
+/* Menu Item Wrapper (for submenu positioning) */
+.start-menu__item-wrapper {
+  position: relative;
+}
+
+/* Menu Item with Submenu */
+.start-menu__item--has-submenu {
+  padding-right: 20px;
+}
+
+.start-menu__item-arrow {
+  position: absolute;
+  right: 8px;
+  font-size: 10px;
+  color: inherit;
+}
+
+/* Submenu Container */
+.start-menu__submenu {
+  position: absolute;
+  left: 100%;
+  top: -2px;
+  
+  min-width: 180px;
+  
+  background-color: var(--win95-button-face);
+  
+  /* Raised 3D border */
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win95-button-highlight);
+  border-left-color: var(--win95-button-highlight);
+  border-right-color: var(--win95-button-dark-shadow);
+  border-bottom-color: var(--win95-button-dark-shadow);
+  box-shadow: 
+    inset 1px 1px 0px var(--win95-white),
+    inset -1px -1px 0px var(--win95-button-shadow),
+    2px 2px 8px rgba(0, 0, 0, 0.3);
+  
+  padding: 2px;
+  
+  display: none;
+  z-index: 10002;
+}
+
+/* Submenu Item */
+.start-menu__submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 4px 8px;
+  min-height: 32px;
+  
+  background-color: transparent;
+  border: none;
+  
+  cursor: pointer;
+  
+  color: var(--win95-black);
+  text-align: left;
+  
+  width: 100%;
+  
+  transition: none;
+}
+
+.start-menu__submenu-item:hover {
+  background-color: var(--win95-highlight);
+  color: var(--win95-highlight-text);
+}
+
+.start-menu__submenu-item:active {
+  background-color: var(--win95-blue);
+}
+
+/* Animation for menu appearance */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.start-menu {
+  animation: slideUp 0.1s ease-out;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .start-menu {
+    width: 250px;
+  }
+  
+  .start-menu__item {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  
+  .start-menu__item-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,226 @@
+/* ========================================
+   Minimal Theme - Simple, Monochrome
+   ======================================== */
+
+/* Minimal Theme Variables */
+.theme-minimal {
+    --theme-primary: #1a1a1a;
+    --theme-primary-dark: #000000;
+    --theme-accent: #404040;
+    --theme-background: #ffffff;
+    --theme-surface: #fafafa;
+    --theme-text: #1a1a1a;
+    --theme-text-light: #737373;
+    --theme-border: #e5e5e5;
+    --theme-code-bg: #fafafa;
+    --theme-code-text: #1a1a1a;
+    --theme-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --theme-font-mono: 'Courier New', Courier, monospace;
+    --theme-line-height: 1.75;
+}
+
+body.theme-minimal .preview-content {
+    background-color: var(--theme-background);
+}
+
+/* Preview Content Styling for Minimal Theme */
+body.theme-minimal .preview-content h1,
+body.theme-minimal .preview-content h2,
+body.theme-minimal .preview-content h3,
+body.theme-minimal .preview-content h4,
+body.theme-minimal .preview-content h5,
+body.theme-minimal .preview-content h6 {
+    color: var(--theme-text);
+    font-weight: 400;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+body.theme-minimal .preview-content h1 {
+    font-size: 2.5rem;
+    border-bottom: 1px solid var(--theme-border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+body.theme-minimal .preview-content h2 {
+    font-size: 2rem;
+    margin-top: 3em;
+}
+
+body.theme-minimal .preview-content h3 {
+    font-size: 1.5rem;
+}
+
+body.theme-minimal .preview-content h4 {
+    font-size: 1.25rem;
+}
+
+body.theme-minimal .preview-content h5 {
+    font-size: 1.125rem;
+}
+
+body.theme-minimal .preview-content h6 {
+    font-size: 1rem;
+    color: var(--theme-text-light);
+    font-weight: 400;
+}
+
+/* Paragraphs */
+body.theme-minimal .preview-content p {
+    margin-bottom: 1.5em;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+    font-size: 1rem;
+}
+
+/* Links */
+body.theme-minimal .preview-content a {
+    color: var(--theme-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--theme-text);
+}
+
+body.theme-minimal .preview-content a:hover {
+    opacity: 0.6;
+}
+
+/* Lists */
+body.theme-minimal .preview-content ul,
+body.theme-minimal .preview-content ol {
+    margin: 1.5em 0;
+    padding-left: 2em;
+}
+
+body.theme-minimal .preview-content li {
+    margin: 0.75em 0;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+body.theme-minimal .preview-content ul > li {
+    list-style-type: none;
+    position: relative;
+}
+
+body.theme-minimal .preview-content ul > li::before {
+    content: '—';
+    position: absolute;
+    left: -1.5em;
+    color: var(--theme-text-light);
+}
+
+/* Code Blocks */
+body.theme-minimal .preview-content code {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    padding: 0.15em 0.4em;
+    border-radius: 0.2rem;
+    font-family: var(--theme-font-mono);
+    font-size: 0.9em;
+}
+
+body.theme-minimal .preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 1.5rem;
+    border-radius: 0;
+    overflow-x: auto;
+    margin: 2em 0;
+    border-left: 2px solid var(--theme-text);
+}
+
+body.theme-minimal .preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.875rem;
+}
+
+/* Blockquotes */
+body.theme-minimal .preview-content blockquote {
+    border-left: 2px solid var(--theme-text);
+    padding: 0 0 0 2rem;
+    margin: 2em 0;
+    color: var(--theme-text-light);
+    font-style: normal;
+}
+
+body.theme-minimal .preview-content blockquote p {
+    margin: 0.5em 0;
+}
+
+/* Tables */
+body.theme-minimal .preview-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    border: none;
+}
+
+body.theme-minimal .preview-content th {
+    background-color: transparent;
+    color: var(--theme-text);
+    font-weight: 400;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--theme-text);
+}
+
+body.theme-minimal .preview-content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+body.theme-minimal .preview-content tr:last-child td {
+    border-bottom: none;
+}
+
+body.theme-minimal .preview-content tr:hover {
+    background-color: transparent;
+}
+
+/* Horizontal Rules */
+body.theme-minimal .preview-content hr {
+    border: none;
+    border-top: 1px solid var(--theme-border);
+    margin: 3em 0;
+}
+
+/* Images */
+body.theme-minimal .preview-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 2em 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* Strong and Emphasis */
+body.theme-minimal .preview-content strong {
+    font-weight: 600;
+    color: var(--theme-text);
+}
+
+body.theme-minimal .preview-content em {
+    font-style: italic;
+    color: var(--theme-text);
+}
+
+/* Strikethrough */
+body.theme-minimal .preview-content del {
+    text-decoration: line-through;
+    color: var(--theme-text-light);
+}
+
+/* Mermaid Diagrams */
+body.theme-minimal .preview-content .mermaid {
+    margin: 2.5em 0;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}

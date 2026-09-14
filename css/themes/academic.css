@@ -1,0 +1,250 @@
+/* ========================================
+   Academic Theme - Scholarly, Professional
+   ======================================== */
+
+/* Academic Theme Variables */
+.theme-academic {
+    --theme-primary: #1a365d;
+    --theme-primary-dark: #0f2947;
+    --theme-accent: #2c5282;
+    --theme-background: #ffffff;
+    --theme-surface: #fafafa;
+    --theme-text: #2d3748;
+    --theme-text-light: #718096;
+    --theme-border: #e2e8f0;
+    --theme-citation: #744210;
+    --theme-code-bg: #f7fafc;
+    --theme-code-text: #2d3748;
+    --theme-code-border: #e2e8f0;
+    --theme-font-family: 'Georgia', 'Times New Roman', Times, serif;
+    --theme-font-mono: 'Courier New', Courier, monospace;
+    --theme-line-height: 1.8;
+}
+
+/* Preview Content Styling for Academic Theme */
+.preview-content h1,
+.preview-content h2,
+.preview-content h3,
+.preview-content h4,
+.preview-content h5,
+.preview-content h6 {
+    color: var(--theme-primary);
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.preview-content h1 {
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--theme-primary);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.preview-content h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--theme-accent);
+    padding-bottom: 0.5rem;
+}
+
+.preview-content h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.preview-content h4 {
+    font-size: 1.25rem;
+}
+
+.preview-content h5 {
+    font-size: 1.125rem;
+    font-style: italic;
+}
+
+.preview-content h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--theme-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.preview-content p {
+    margin-bottom: 1.2em;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+    text-align: justify;
+    text-indent: 2em;
+}
+
+.preview-content p:first-of-type {
+    text-indent: 0;
+}
+
+.preview-content a {
+    color: var(--theme-citation);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.preview-content a:hover {
+    text-decoration-style: solid;
+}
+
+/* Lists */
+.preview-content ul,
+.preview-content ol {
+    margin: 1.2em 0;
+    padding-left: 3em;
+}
+
+.preview-content li {
+    margin: 0.75em 0;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+.preview-content ul > li {
+    list-style-type: square;
+}
+
+.preview-content ol {
+    list-style-type: decimal;
+}
+
+/* Code Blocks - Minimal, professional */
+.preview-content code {
+    background-color: #f7fafc;
+    color: #2d3748;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2rem;
+    font-family: var(--theme-font-mono);
+    font-size: 0.9em;
+    border: 1px solid #e2e8f0;
+}
+
+.preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border: 1px solid var(--code-theme-border, var(--theme-code-border));
+    border-left: 4px solid var(--theme-primary);
+}
+
+.preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+    border: none;
+}
+
+/* Blockquotes - Academic citation style */
+.preview-content blockquote {
+    border-left: 3px solid var(--theme-accent);
+    padding: 1rem 2rem;
+    margin: 2em 3em;
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    font-style: italic;
+    font-size: 0.95em;
+    position: relative;
+}
+
+.preview-content blockquote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--theme-accent);
+    position: absolute;
+    left: 0.5rem;
+    top: -0.5rem;
+    opacity: 0.3;
+}
+
+.preview-content blockquote p {
+    margin: 0;
+    text-indent: 0;
+}
+
+/* Tables - Professional academic tables */
+.preview-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em auto;
+    border-top: 2px solid var(--theme-primary);
+    border-bottom: 2px solid var(--theme-primary);
+}
+
+.preview-content th {
+    background-color: transparent;
+    color: var(--theme-primary);
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--theme-primary);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.preview-content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text);
+}
+
+.preview-content tr:last-child td {
+    border-bottom: none;
+}
+
+/* Horizontal Rules - Academic divider */
+.preview-content hr {
+    border: none;
+    border-top: 1px solid var(--theme-border);
+    margin: 3em 0;
+}
+
+/* Images - Centered with captions */
+.preview-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 2em auto;
+    display: block;
+    border: 1px solid var(--theme-border);
+}
+
+/* Strong and Emphasis */
+.preview-content strong {
+    font-weight: 700;
+    color: var(--theme-text);
+}
+
+.preview-content em {
+    font-style: italic;
+    color: var(--theme-text);
+}
+
+/* Strikethrough */
+.preview-content del {
+    text-decoration: line-through;
+    color: var(--theme-text-light);
+}
+
+/* Mermaid Diagrams - Formal presentation */
+.preview-content .mermaid {
+    margin: 2.5em auto;
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid var(--theme-border);
+    max-width: 90%;
+}

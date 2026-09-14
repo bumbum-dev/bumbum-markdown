@@ -1,0 +1,60 @@
+/**
+ * Windows 95 Desktop Icon Styles
+ * Retro desktop icons with labels and selection states
+ */
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  width: 80px;
+  padding: var(--spacing-xs, 4px);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.desktop-icon:hover {
+  background: rgba(0, 0, 170, 0.2);
+}
+
+.desktop-icon:active {
+  background: rgba(0, 0, 170, 0.4);
+}
+
+/* Selected state */
+.desktop-icon--selected {
+  background: rgba(0, 0, 170, 0.3);
+  border: 1px dotted var(--win95-white);
+}
+
+.desktop-icon-image {
+  font-size: 32px;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
+}
+
+.desktop-icon-label {
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .desktop-icon {
+    width: 60px;
+  }
+  
+  .desktop-icon-image {
+    font-size: 24px;
+  }
+  
+  .desktop-icon-label {
+    font-size: 10px;
+  }
+}

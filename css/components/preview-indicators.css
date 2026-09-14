@@ -1,0 +1,326 @@
+/**
+ * Preview Indicators CSS - Windows 95 Retro
+ * Visual indicators for document structure in preview mode
+ */
+
+/* Preview Mode Toggle Button */
+.preview-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.preview-mode-switch {
+    display: flex;
+    gap: 4px;
+}
+
+.preview-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080)
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    height: 23px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.preview-mode-btn:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff)
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.preview-mode-btn.active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff)
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-blue, #000080);
+    color: var(--win95-white, #ffffff);
+}
+
+.preview-mode-icon {
+    font-size: 11px;
+}
+
+.preview-mode-text {
+    font-weight: normal;
+}
+
+/* Page count badge - shown next to the toggle while in document preview */
+.preview-page-count {
+    font-size: 11px;
+    color: var(--text-primary, #000000);
+    padding: 2px 6px;
+    background-color: var(--surface, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff)
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    white-space: nowrap;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Document Preview Mode Indicator */
+.preview-content[data-preview-mode="document"] {
+    background: var(--win95-white, #ffffff);
+    padding: 16px 8px;
+}
+
+.preview-content[data-preview-mode="simple"] {
+    background: white;
+}
+
+.simple-preview-page {
+    padding: var(--preview-margin-top, 20mm) var(--preview-margin-right, 20mm)
+              var(--preview-margin-bottom, 20mm) var(--preview-margin-left, 20mm);
+    box-sizing: border-box;
+}
+
+/* Page Container - Simulates actual PDF pages */
+.page-container {
+    background: white;
+    margin: 0 auto 16px auto;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    width: 794px; /* A4 width at 96 DPI - FIXED */
+    height: 1123px; /* A4 height at 96 DPI - FIXED */
+    position: relative;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Page Header - inside each page */
+.page-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 8px;
+    font-size: 11px;
+    text-align: center;
+    border-bottom: 1px solid var(--win95-gray-dark, #808080);
+    color: var(--win95-black, #000000);
+    background: var(--win95-gray, #c0c0c0);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Page Footer - inside each page */
+.page-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 8px;
+    font-size: 11px;
+    text-align: center;
+    border-top: 1px solid var(--win95-gray-dark, #808080);
+    color: var(--win95-black, #000000);
+    background: var(--win95-gray, #c0c0c0);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Page content area with proper margins for header/footer */
+.page-content {
+    /* Match PDF margins: 20mm top/bottom, 15mm left/right */
+    /* 1mm ≈ 3.78px at 96 DPI */
+    padding: 75.6px 56.7px; /* 20mm top/bottom, 15mm left/right */
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Page Separator */
+.page-separator {
+    text-align: center;
+    margin: 8px 0;
+    padding: 4px;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-weight: bold;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    position: relative;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.page-separator::before {
+    content: "✂";
+    margin-right: 4px;
+    font-size: 11px;
+}
+
+.page-separator::after {
+    content: "✂";
+    margin-left: 4px;
+    font-size: 11px;
+}
+
+/* Cover Page Styling */
+.cover-page {
+    page-break-after: always;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 16px;
+    background: white;
+    border: 2px solid var(--win95-gray-dark, #808080);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.cover-page::before {
+    content: "Cover Page";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--win95-gray, #c0c0c0);
+    color: var(--win95-black, #000000);
+    padding: 2px 4px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.cover-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.cover-subtitle {
+    font-size: 16px;
+    color: var(--win95-black, #000000);
+    margin-bottom: 24px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.cover-meta {
+    margin-top: auto;
+    font-size: 13px;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.cover-author,
+.cover-date {
+    margin-bottom: 4px;
+}
+
+/* Page Break Indicators */
+.page-break-indicator {
+    margin: 16px 0;
+    padding: 4px 0;
+    border-top: 2px solid var(--win95-gray-dark, #808080);
+    border-bottom: 2px solid var(--win95-gray-dark, #808080);
+    text-align: center;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-weight: bold;
+    background: var(--win95-gray, #c0c0c0);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.page-break-indicator::before {
+    content: "--- Page Break ---";
+}
+
+/* Header/Footer Placeholder Areas */
+.header-placeholder,
+.footer-placeholder {
+    padding: 8px;
+    background: white;
+    border: 2px solid var(--win95-gray-dark, #808080);
+    text-align: center;
+    color: var(--win95-black, #000000);
+    font-size: 11px;
+    font-style: italic;
+    margin: 8px 0;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.header-placeholder {
+    border-top: 2px solid var(--win95-gray-dark, #808080);
+    margin-top: 0;
+}
+
+.footer-placeholder {
+    border-bottom: 2px solid var(--win95-gray-dark, #808080);
+    margin-bottom: 0;
+}
+
+.header-placeholder::before {
+    content: "Header: ";
+    font-weight: bold;
+    font-style: normal;
+}
+
+.footer-placeholder::before {
+    content: "Footer: ";
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Document Content Wrapper */
+.document-content-wrapper {
+    background: white;
+    padding: 16px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+}
+
+.preview-content[data-preview-mode="simple"] .cover-page,
+.preview-content[data-preview-mode="simple"] .page-break-indicator,
+.preview-content[data-preview-mode="simple"] .header-placeholder,
+.preview-content[data-preview-mode="simple"] .footer-placeholder {
+    display: none;
+}
+
+/* Document Mode - Show All */
+.preview-content[data-preview-mode="document"] .cover-page,
+.preview-content[data-preview-mode="document"] .table-of-contents {
+    display: flex;
+}
+
+.preview-content[data-preview-mode="document"] .page-break-indicator,
+.preview-content[data-preview-mode="document"] .header-placeholder,
+.preview-content[data-preview-mode="document"] .footer-placeholder {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .preview-mode-text {
+        display: none;
+    }
+    
+    .preview-mode-btn {
+        padding: 3px 4px;
+    }
+    
+    .cover-page {
+        padding: 16px 8px;
+    }
+    
+    .cover-title {
+        font-size: 24px;
+    }
+    
+    .cover-subtitle {
+        font-size: 14px;
+    }
+}

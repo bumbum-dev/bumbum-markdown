@@ -1,0 +1,251 @@
+/**
+ * Retro Form Controls
+ * Windows 95-style form elements
+ */
+
+/* Text inputs and textareas */
+.retro-input,
+.retro-textarea,
+input[type="text"].retro,
+input[type="number"].retro,
+input[type="email"].retro,
+input[type="password"].retro,
+textarea.retro {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-normal);
+  padding: 2px 4px;
+  border: 2px inset var(--win95-gray-dark);
+  background: var(--win95-white);
+  color: var(--win95-black);
+  outline: none;
+}
+
+.retro-input:focus,
+.retro-textarea:focus,
+input[type="text"].retro:focus,
+input[type="number"].retro:focus,
+input[type="email"].retro:focus,
+input[type="password"].retro:focus,
+textarea.retro:focus {
+  border-color: var(--win95-blue);
+}
+
+.retro-input:disabled,
+.retro-textarea:disabled {
+  background: var(--win95-gray);
+  color: var(--win95-gray-dark);
+}
+
+/* Checkboxes */
+.retro-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 2px inset var(--win95-gray-dark);
+  background: var(--win95-white);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: var(--spacing-sm);
+}
+
+.retro-checkbox:checked::before {
+  content: '✓';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win95-black);
+}
+
+.retro-checkbox:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 2px;
+}
+
+.retro-checkbox:disabled {
+  background: var(--win95-gray);
+  cursor: not-allowed;
+}
+
+/* Radio buttons */
+.retro-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px inset var(--win95-gray-dark);
+  background: var(--win95-white);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: var(--spacing-sm);
+}
+
+.retro-radio:checked::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--win95-black);
+}
+
+.retro-radio:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 2px;
+}
+
+.retro-radio:disabled {
+  background: var(--win95-gray);
+  cursor: not-allowed;
+}
+
+/* Select dropdowns */
+.retro-select,
+select.retro {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-normal);
+  padding: 2px 20px 2px 4px;
+  border: 2px inset var(--win95-gray-dark);
+  background: var(--win95-white);
+  color: var(--win95-black);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path d="M0 0 L6 8 L12 0 Z" fill="%23000000"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 8px 6px;
+}
+
+.retro-select:focus,
+select.retro:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -2px;
+}
+
+.retro-select:disabled,
+select.retro:disabled {
+  background-color: var(--win95-gray);
+  color: var(--win95-gray-dark);
+  cursor: not-allowed;
+}
+
+/* Range sliders */
+.retro-slider,
+input[type="range"].retro {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--win95-white);
+  border: 2px inset var(--win95-gray-dark);
+  outline: none;
+  cursor: pointer;
+}
+
+.retro-slider::-webkit-slider-thumb,
+input[type="range"].retro::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--win95-gray);
+  border: 2px outset var(--win95-gray-light);
+  cursor: pointer;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.retro-slider::-moz-range-thumb,
+input[type="range"].retro::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--win95-gray);
+  border: 2px outset var(--win95-gray-light);
+  cursor: pointer;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.retro-slider::-webkit-slider-thumb:active,
+input[type="range"].retro::-webkit-slider-thumb:active {
+  border-style: inset;
+}
+
+.retro-slider::-moz-range-thumb:active,
+input[type="range"].retro::-moz-range-thumb:active {
+  border-style: inset;
+}
+
+/* Fieldsets and legends */
+.retro-fieldset,
+fieldset.retro {
+  border: 2px groove var(--win95-gray-dark);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  background: var(--win95-gray);
+}
+
+.retro-legend,
+fieldset.retro legend,
+.retro-fieldset legend {
+  font-weight: bold;
+  padding: 0 var(--spacing-sm);
+  color: var(--win95-black);
+}
+
+/* Form labels */
+.retro-label,
+label.retro {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-normal);
+  color: var(--win95-black);
+}
+
+/* Form groups */
+.retro-form-group {
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.retro-form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Helper text */
+.retro-helper-text {
+  font-size: var(--font-size-small);
+  color: var(--win95-gray-darker);
+  margin-top: var(--spacing-xs);
+}
+
+/* Input groups (with buttons) */
+.retro-input-group {
+  display: flex;
+  align-items: stretch;
+}
+
+.retro-input-group .retro-input {
+  flex: 1;
+  border-right: none;
+}
+
+.retro-input-group .retro-button {
+  border-left: none;
+}

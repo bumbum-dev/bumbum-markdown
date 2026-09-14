@@ -1,0 +1,392 @@
+/**
+ * Loading Indicators CSS - Windows 95 Retro
+ * Comprehensive loading states for all async operations
+ */
+
+/* Global Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Loading Spinner Container */
+.loading-spinner {
+    background: var(--win95-gray, #c0c0c0);
+    padding: 16px 24px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 250px;
+}
+
+/* Spinner Animation - Simple Dotted Progress */
+.spinner {
+    width: 200px;
+    height: 20px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    position: relative;
+    overflow: hidden;
+}
+
+.spinner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    background: var(--win95-blue, #000080);
+    animation: progress-bar 2s linear infinite;
+}
+
+@keyframes progress-bar {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
+/* Loading Text */
+.loading-text {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    text-align: center;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.loading-subtext {
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    text-align: center;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Progress Bar */
+.loading-progress {
+    width: 100%;
+    height: 20px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: var(--win95-blue, #000080);
+}
+
+/* Inline Loading States */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading::after {
+    content: '...';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Skeleton Loading for Content */
+.skeleton {
+    background: var(--win95-gray, #c0c0c0);
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--win95-gray, #c0c0c0) 0px,
+        var(--win95-gray-light, #dfdfdf) 50px,
+        var(--win95-gray, #c0c0c0) 100px
+    );
+    background-size: 200px 100%;
+    animation: skeleton-loading 2s linear infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 0; }
+}
+
+.skeleton-text {
+    height: 11px;
+    margin: 4px 0;
+}
+
+.skeleton-heading {
+    height: 16px;
+    width: 60%;
+    margin: 8px 0;
+}
+
+.skeleton-paragraph {
+    height: 11px;
+    margin: 2px 0;
+}
+
+.skeleton-paragraph:nth-child(3) {
+    width: 90%;
+}
+
+.skeleton-paragraph:nth-child(4) {
+    width: 85%;
+}
+
+.skeleton-paragraph:last-child {
+    width: 70%;
+}
+
+/* Panel Loading State */
+.panel-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.panel-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(192, 192, 192, 0.8);
+    z-index: 100;
+}
+
+.panel-loading::after {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    z-index: 101;
+}
+
+/* Small Inline Spinner */
+.spinner-small {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    vertical-align: middle;
+    margin-left: 4px;
+    position: relative;
+}
+
+.spinner-small::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--win95-blue, #000080);
+    animation: small-progress 1s linear infinite;
+}
+
+@keyframes small-progress {
+    0% { left: 0; }
+    100% { left: 8px; }
+}
+
+/* Processing Indicator for File Operations */
+.processing-indicator {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: var(--win95-gray, #c0c0c0);
+    padding: 8px 12px;
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.processing-indicator.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.processing-icon {
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    position: relative;
+    overflow: hidden;
+}
+
+.processing-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--win95-blue, #000080);
+    animation: small-progress 1s linear infinite;
+}
+
+.processing-text {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+/* Pulse Animation for Updates - Win95 Style */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.pulsing {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .loading-spinner {
+        padding: 12px 16px;
+        min-width: 200px;
+    }
+    
+    .spinner {
+        width: 150px;
+    }
+    
+    .loading-text {
+        font-size: 11px;
+    }
+    
+    .loading-subtext {
+        font-size: 11px;
+    }
+    
+    .processing-indicator {
+        bottom: 8px;
+        right: 8px;
+        left: 8px;
+    }
+}
+
+/* Determinate Progress Indicator */
+.progress-container {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    margin-bottom: 2px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--win95-blue, #000080);
+}
+
+/* Success State - Win95 Message Box Style */
+.success-checkmark {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    font-size: 32px;
+    color: var(--win95-black, #000000);
+}
+
+.success-checkmark::before {
+    content: '✓';
+    font-weight: bold;
+}
+
+/* Hourglass Cursor Alternative */
+.busy-cursor {
+    cursor: wait;
+}
+
+/* Status Bar Loading Indicator */
+.status-bar-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.status-bar-loading::after {
+    content: '';
+    width: 40px;
+    height: 12px;
+    border: 1px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    background: var(--win95-white, #ffffff);
+    position: relative;
+    overflow: hidden;
+}

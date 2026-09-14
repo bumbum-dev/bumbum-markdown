@@ -1,0 +1,254 @@
+/* ========================================
+   GitHub Theme - GitHub Markdown Style
+   ======================================== */
+
+/* GitHub Theme Variables */
+.theme-github {
+    --theme-primary: #0969da;
+    --theme-primary-dark: #0550ae;
+    --theme-accent: #1f6feb;
+    --theme-background: #ffffff;
+    --theme-surface: #f6f8fa;
+    --theme-text: #24292f;
+    --theme-text-light: #57606a;
+    --theme-border: #d0d7de;
+    --theme-code-bg: #f6f8fa;
+    --theme-code-text: #24292f;
+    --theme-code-border: #d0d7de;
+    --theme-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    --theme-font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    --theme-line-height: 1.6;
+}
+
+/* Preview Content Styling for GitHub Theme */
+.preview-content h1,
+.preview-content h2,
+.preview-content h3,
+.preview-content h4,
+.preview-content h5,
+.preview-content h6 {
+    color: var(--theme-text);
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+.preview-content h1 {
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.preview-content h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.preview-content h3 {
+    font-size: 1.25em;
+}
+
+.preview-content h4 {
+    font-size: 1em;
+}
+
+.preview-content h5 {
+    font-size: 0.875em;
+}
+
+.preview-content h6 {
+    font-size: 0.85em;
+    color: var(--theme-text-light);
+}
+
+/* Paragraphs */
+.preview-content p {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+/* Links - GitHub blue */
+.preview-content a {
+    color: var(--theme-primary);
+    text-decoration: none;
+}
+
+.preview-content a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+.preview-content ul,
+.preview-content ol {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-left: 2em;
+}
+
+.preview-content li {
+    margin-top: 0.25em;
+    color: var(--theme-text);
+}
+
+.preview-content li + li {
+    margin-top: 0.25em;
+}
+
+.preview-content ul > li {
+    list-style-type: disc;
+}
+
+.preview-content ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.preview-content ol {
+    list-style-type: decimal;
+}
+
+/* Code Blocks - GitHub style */
+.preview-content code {
+    background-color: rgba(175, 184, 193, 0.2);
+    color: var(--theme-text);
+    padding: 0.2em 0.4em;
+    margin: 0;
+    border-radius: 6px;
+    font-family: var(--theme-font-mono);
+    font-size: 85%;
+}
+
+.preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 16px;
+    border-radius: 6px;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1.45;
+    border: 1px solid var(--code-theme-border, var(--theme-code-border));
+}
+
+.preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: 100%;
+}
+
+/* Blockquotes - GitHub style */
+.preview-content blockquote {
+    border-left: 0.25em solid var(--theme-border);
+    padding: 0 1em;
+    margin: 0 0 16px 0;
+    color: var(--theme-text-light);
+}
+
+.preview-content blockquote > :first-child {
+    margin-top: 0;
+}
+
+.preview-content blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+/* Tables - GitHub style */
+.preview-content table {
+    width: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 16px;
+    display: block;
+    overflow: auto;
+}
+
+.preview-content th {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid var(--theme-border);
+}
+
+.preview-content td {
+    padding: 6px 13px;
+    border: 1px solid var(--theme-border);
+}
+
+.preview-content tr {
+    background-color: var(--theme-background);
+    border-top: 1px solid var(--theme-border);
+}
+
+.preview-content tr:nth-child(2n) {
+    background-color: var(--theme-surface);
+}
+
+/* Horizontal Rules - GitHub style */
+.preview-content hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: var(--theme-border);
+    border: 0;
+}
+
+/* Images */
+.preview-content img {
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+    box-sizing: content-box;
+    background-color: var(--theme-background);
+}
+
+/* Strong and Emphasis */
+.preview-content strong {
+    font-weight: 600;
+    color: var(--theme-text);
+}
+
+.preview-content em {
+    font-style: italic;
+    color: var(--theme-text);
+}
+
+/* Strikethrough */
+.preview-content del {
+    text-decoration: line-through;
+}
+
+/* Task lists - GitHub style */
+.preview-content input[type="checkbox"] {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+/* Mermaid Diagrams - Neutral background */
+.preview-content .mermaid {
+    margin: 16px 0;
+    text-align: center;
+    background-color: var(--theme-background);
+    padding: 16px;
+    border: 1px solid var(--theme-border);
+    border-radius: 6px;
+}
+
+/* Details/Summary - GitHub collapsible */
+.preview-content details {
+    margin-bottom: 16px;
+}
+
+.preview-content summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 8px 0;
+}

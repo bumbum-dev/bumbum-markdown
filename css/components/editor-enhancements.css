@@ -1,0 +1,207 @@
+/**
+ * Editor Enhancements CSS - Windows 95 Retro
+ * Styling for line numbers, find/replace
+ */
+
+/* Editor Controls */
+.editor-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.editor-controls .btn-icon {
+    padding: 3px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    height: 23px;
+    min-width: 23px;
+}
+
+.editor-controls .btn-icon:hover {
+    /* No hover effect */
+}
+
+.editor-controls .btn-icon:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.editor-controls .btn-icon.active {
+    background: var(--win95-blue, #000080);
+    color: var(--win95-white, #ffffff);
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+/* Line Numbers */
+.editor-panel {
+    position: relative;
+}
+
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+    padding: 10px 4px 4px;
+    background: var(--win95-gray, #c0c0c0);
+    border-right: 2px solid;
+    border-right-color: var(--win95-gray-dark, #808080);
+    color: var(--win95-black, #000000);
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 17px; 
+    text-align: right;
+    overflow: hidden;
+    user-select: none;
+    z-index: 10;
+    white-space: pre;
+}
+
+.editor-panel.line-numbers-enabled .markdown-editor {
+    padding-left: 33px;
+}
+
+/* Find/Replace Panel */
+.find-replace-panel {
+    position: absolute;
+    top: 60px;
+    right: 8px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    z-index: 100;
+    min-width: 400px;
+}
+
+.find-replace-content {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.find-group,
+.replace-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.find-group input,
+.replace-group input {
+    flex: 1;
+    padding: 2px 4px;
+    border: 2px solid;
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    background: var(--win95-white, #ffffff);
+}
+
+.find-group input:focus,
+.replace-group input:focus {
+    outline: 1px dotted var(--win95-black, #000000);
+    outline-offset: -3px;
+}
+
+.find-group button,
+.replace-group button {
+    padding: 3px 8px;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-gray-dark, #808080) 
+                  var(--win95-gray-dark, #808080) var(--win95-white, #ffffff);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    white-space: nowrap;
+    height: 23px;
+}
+
+.find-group button:hover,
+.replace-group button:hover {
+    /* No hover effect */
+}
+
+.find-group button:active,
+.replace-group button:active {
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+
+.find-count {
+    font-size: 11px;
+    color: var(--win95-black, #000000);
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+    white-space: nowrap;
+    min-width: 60px;
+}
+
+.find-close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 14px;
+    padding: 0;
+    background: var(--win95-gray, #c0c0c0);
+    border: 2px solid;
+    border-color: var(--win95-white, #ffffff) var(--win95-black, #000000) 
+                  var(--win95-black, #000000) var(--win95-white, #ffffff);
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--win95-black, #000000);
+    cursor: pointer;
+    line-height: 1;
+    font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+}
+
+.find-close:hover {
+    /* No hover effect */
+}
+
+.find-close:active {
+    border-color: var(--win95-black, #000000) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-black, #000000);
+    padding: 1px 0 0 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .find-replace-panel {
+        min-width: 300px;
+        right: 4px;
+    }
+    
+    .editor-controls {
+        flex-wrap: wrap;
+    }
+    
+    .editor-controls .word-count {
+        font-size: 11px;
+    }
+}
+
+/* Active state for toggle buttons */
+.editor-controls .btn-icon[data-active="true"] {
+    background: var(--win95-blue, #000080);
+    color: var(--win95-white, #ffffff);
+    border-color: var(--win95-gray-dark, #808080) var(--win95-white, #ffffff) 
+                  var(--win95-white, #ffffff) var(--win95-gray-dark, #808080);
+    padding: 4px 7px 2px 9px;
+}
+

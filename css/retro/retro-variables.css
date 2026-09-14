@@ -1,0 +1,213 @@
+/**
+ * Windows 95/98 Retro Design System - CSS Variables
+ */
+
+:root {
+  /* ========================================
+     Windows 95 Color Palette
+     ======================================== */
+  --win95-gray: #c0c0c0;
+  --win95-gray-light: #dfdfdf;
+  --win95-gray-dark: #808080;
+  --win95-gray-darker: #404040;
+  --win95-white: #ffffff;
+  --win95-black: #000000;
+  
+  /* Window Chrome Colors */
+  --win95-blue: #000080;
+  --win95-blue-light: #1084d0;
+  --win95-blue-gradient-start: #000080;
+  --win95-blue-gradient-end: #1084d0;
+  
+  /* UI Element Colors */
+  --win95-highlight: #000080;
+  --win95-highlight-text: #ffffff;
+  --win95-button-face: #c0c0c0;
+  --win95-button-shadow: #808080;
+  --win95-button-dark-shadow: #000000;
+  --win95-button-light: #dfdfdf;
+  --win95-button-highlight: #ffffff;
+  
+  /* Desktop Colors */
+  --win95-desktop-teal: #008080;
+  --win95-desktop-green: #008000;
+  
+  /* Additional UI Colors */
+  --win95-text-disabled: #808080;
+  --win95-menu-background: #c0c0c0;
+  --win95-menu-highlight: #000080;
+  --win95-scrollbar-face: #c0c0c0;
+  
+  /* ========================================
+     Borders
+     ======================================== */
+  --border-width: 2px;
+  --border-thin: 1px;
+  
+  /* Raised Border (buttons, windows) */
+  --border-raised-light: var(--win95-button-highlight);
+  --border-raised-dark: var(--win95-button-shadow);
+  --border-raised-darker: var(--win95-button-dark-shadow);
+  
+  /* Sunken Border (input fields, panels) */
+  --border-sunken-light: var(--win95-button-shadow);
+  --border-sunken-dark: var(--win95-button-highlight);
+  
+  /* Simplified border variables (shorthand aliases) */
+  --border-light: var(--win95-button-highlight);
+  --border-dark: var(--win95-button-shadow);
+  
+  /* ========================================
+     Unified Color System (Cross-component aliases)
+     ======================================== */
+  --color-surface: var(--win95-button-face);
+  --color-text: var(--win95-black);
+  --color-text-inverse: var(--win95-white);
+  --color-border-dark: var(--win95-button-shadow);
+  --color-border-light: var(--win95-button-highlight);
+  --bg-gray: var(--win95-button-face);
+  
+  /* ========================================
+     Typography
+     ======================================== */
+  --font-system: 'MS Sans Serif', 'Microsoft Sans Serif', Arial, sans-serif;
+  --font-serif: 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-primary: var(--font-system);
+  
+  /* Font Sizes */
+  --font-size-small: 9px;
+  --font-size-normal: 11px;
+  --font-size-title: 11px;
+  --font-size-large: 14px;
+  --font-size-heading: 16px;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  /* ========================================
+     Spacing Scale
+     ======================================== */
+  --spacing-xs: 2px;
+  --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  /* ========================================
+     Component Dimensions
+     ======================================== */
+  --titlebar-height: 18px;
+  --taskbar-height: 28px;
+  --menubar-height: 20px;
+  --statusbar-height: 20px;
+  
+  --button-min-width: 75px;
+  --button-height: 23px;
+  --button-padding-x: 12px;
+  --button-padding-y: 4px;
+  
+  --input-height: 21px;
+  --input-padding-x: 4px;
+  --input-padding-y: 2px;
+  
+  --scrollbar-width: 16px;
+  --scrollbar-button-size: 16px;
+  
+  --icon-size-small: 16px;
+  --icon-size-medium: 32px;
+  --icon-size-large: 48px;
+  
+  /* ========================================
+     Z-Index Layers
+     ======================================== */
+  --z-desktop: 1;
+  --z-desktop-icons: 10;
+  --z-windows: 100;
+  --z-window-focused: 200;
+  --z-modal: 300;
+  --z-dropdown: 400;
+  --z-start-menu: 500;
+  --z-taskbar: 600;
+  --z-tooltip: 700;
+  --z-dialog: 800;
+  --z-effects: 9999;
+  
+  /* ========================================
+     Shadows
+     ======================================== */
+  --shadow-window: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-button: inset 1px 1px 0px var(--win95-white),
+                   inset -1px -1px 0px var(--border-raised-dark);
+  --shadow-button-pressed: inset -1px -1px 0px var(--win95-white),
+                           inset 1px 1px 0px var(--border-sunken-light);
+  --shadow-sunken: inset -1px -1px 0px var(--win95-gray-light);
+  --shadow-text: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  
+  /* ========================================
+     Animations & Transitions
+     ======================================== */
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  
+  /* ========================================
+     Window Defaults
+     ======================================== */
+  --window-default-width: 800px;
+  --window-default-height: 600px;
+  --window-min-width: 300px;
+  --window-min-height: 200px;
+  
+  /* ========================================
+     Editor Specific
+     ======================================== */
+  --editor-font-size: 14px;
+  --editor-line-height: 1.6;
+  --editor-padding: 16px;
+}
+
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+@media (max-width: 768px) {
+  :root {
+    --taskbar-height: 40px;
+    --titlebar-height: 32px;
+    --font-size-normal: 14px;
+    --font-size-title: 14px;
+    --button-height: 32px;
+    --button-min-width: 60px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --taskbar-height: 32px;
+    --titlebar-height: 24px;
+  }
+}
+
+/* ========================================
+   Accessibility: Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0.01ms;
+    --transition-normal: 0.01ms;
+    --transition-slow: 0.01ms;
+  }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+@media (prefers-contrast: high) {
+  :root {
+    --border-width: 3px;
+    --border-thin: 2px;
+  }
+}

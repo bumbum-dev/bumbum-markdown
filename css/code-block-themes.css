@@ -1,0 +1,34 @@
+/* ========================================
+   Code Block Themes - Chrome Overrides
+   ========================================
+   */
+
+.code-theme-github {
+    --code-theme-bg: #f6f8fa;
+    --code-theme-text: #24292f;
+    --code-theme-border: #d0d7de;
+}
+
+.code-theme-monokai {
+    --code-theme-bg: #272822;
+    --code-theme-text: #f8f8f2;
+    --code-theme-border: #49483e;
+}
+
+.code-theme-dracula {
+    --code-theme-bg: #282a36;
+    --code-theme-text: #f8f8f2;
+    --code-theme-border: #44475a;
+}
+
+.code-theme-solarized-dark {
+    --code-theme-bg: #002b36;
+    --code-theme-text: #839496;
+    --code-theme-border: #073642;
+}
+
+.code-theme-atom-one-dark {
+    --code-theme-bg: #282c34;
+    --code-theme-text: #abb2bf;
+    --code-theme-border: #3e4451;
+}

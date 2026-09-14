@@ -1,0 +1,27 @@
+/**
+ * Image Resize Styles
+ */
+
+.image-resize-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 0;
+}
+
+.image-resize-handle {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    width: 10px;
+    height: 10px;
+    background: var(--win95-blue, #000080);
+    border: 1px solid var(--win95-white, #ffffff);
+    cursor: nwse-resize;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+}
+
+.image-resize-wrapper:hover .image-resize-handle {
+    opacity: 1;
+}

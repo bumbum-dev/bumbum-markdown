@@ -1,0 +1,263 @@
+/* ========================================
+   Corporate Theme - Professional Business
+   ======================================== */
+
+/* Corporate Theme Variables */
+.theme-corporate {
+    --theme-primary: #1e40af;
+    --theme-primary-dark: #1e3a8a;
+    --theme-accent: #3b82f6;
+    --theme-background: #ffffff;
+    --theme-surface: #f8fafc;
+    --theme-text: #0f172a;
+    --theme-text-light: #475569;
+    --theme-border: #cbd5e1;
+    --theme-highlight: #dbeafe;
+    --theme-code-bg: #1e293b;
+    --theme-code-text: #e2e8f0;
+    --theme-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --theme-font-mono: 'Consolas', 'Monaco', monospace;
+    --theme-line-height: 1.7;
+}
+
+/* Preview Content Styling for Corporate Theme */
+.preview-content h1,
+.preview-content h2,
+.preview-content h3,
+.preview-content h4,
+.preview-content h5,
+.preview-content h6 {
+    color: var(--theme-primary);
+    font-weight: 700;
+    margin-top: 1.75em;
+    margin-bottom: 0.6em;
+    line-height: 1.3;
+}
+
+.preview-content h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-accent) 100%);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    margin: 0 0 2rem 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preview-content h2 {
+    font-size: 1.875rem;
+    border-bottom: 3px solid var(--theme-primary);
+    padding-bottom: 0.5rem;
+    color: var(--theme-primary);
+}
+
+.preview-content h3 {
+    font-size: 1.5rem;
+    color: var(--theme-accent);
+    border-left: 4px solid var(--theme-accent);
+    padding-left: 1rem;
+}
+
+.preview-content h4 {
+    font-size: 1.25rem;
+    color: var(--theme-text);
+    font-weight: 600;
+}
+
+.preview-content h5 {
+    font-size: 1.125rem;
+    color: var(--theme-text);
+    font-weight: 600;
+}
+
+.preview-content h6 {
+    font-size: 1rem;
+    color: var(--theme-text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Paragraphs - Clean, readable */
+.preview-content p {
+    margin-bottom: 1em;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+/* Links - Corporate blue */
+.preview-content a {
+    color: var(--theme-accent);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.preview-content a:hover {
+    border-bottom-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
+
+/* Lists - Clean bullets */
+.preview-content ul,
+.preview-content ol {
+    margin: 1em 0;
+    padding-left: 2.5em;
+}
+
+.preview-content li {
+    margin: 0.6em 0;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+.preview-content ul > li {
+    list-style-type: none;
+    position: relative;
+}
+
+.preview-content ul > li::before {
+    content: '▸';
+    color: var(--theme-accent);
+    font-weight: bold;
+    position: absolute;
+    left: -1.5em;
+}
+
+.preview-content ol {
+    list-style-type: decimal;
+}
+
+/* Code Blocks - Professional styling */
+.preview-content code {
+    background-color: #f1f5f9;
+    color: #dc2626;
+    padding: 0.2em 0.5em;
+    border-radius: 0.25rem;
+    font-family: var(--theme-font-mono);
+    font-size: 0.875em;
+    border: 1px solid #e2e8f0;
+}
+
+.preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border-left: 4px solid var(--theme-accent);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+    border: none;
+}
+
+/* Blockquotes - Professional callouts */
+.preview-content blockquote {
+    border-left: 4px solid var(--theme-accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5em 0;
+    background: linear-gradient(to right, var(--theme-highlight) 0%, transparent 100%);
+    color: var(--theme-text);
+    font-style: normal;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.preview-content blockquote p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Tables - Corporate style with alternating rows */
+.preview-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5em 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-content th {
+    background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-accent) 100%);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.preview-content td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text);
+}
+
+.preview-content tr:nth-child(even) {
+    background-color: var(--theme-surface);
+}
+
+.preview-content tr:hover {
+    background-color: var(--theme-highlight);
+}
+
+.preview-content tr:last-child td {
+    border-bottom: none;
+}
+
+/* Horizontal Rules - Clean divider */
+.preview-content hr {
+    border: none;
+    border-top: 2px solid var(--theme-border);
+    margin: 2.5em 0;
+}
+
+/* Images - Professional presentation */
+.preview-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5em 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--theme-border);
+}
+
+/* Strong and Emphasis */
+.preview-content strong {
+    font-weight: 700;
+    color: var(--theme-primary);
+}
+
+.preview-content em {
+    font-style: italic;
+    color: var(--theme-text);
+}
+
+/* Strikethrough */
+.preview-content del {
+    text-decoration: line-through;
+    color: var(--theme-text-light);
+    opacity: 0.8;
+}
+
+/* Mermaid Diagrams - Corporate presentation */
+.preview-content .mermaid {
+    margin: 2em 0;
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--theme-border);
+}

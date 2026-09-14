@@ -1,0 +1,226 @@
+/* ========================================
+   Modern Theme - Clean, Blue Accents
+   ======================================== */
+
+/* Modern Theme Variables */
+.theme-modern,
+:root {
+    --theme-primary: #2563eb;
+    --theme-primary-dark: #1d4ed8;
+    --theme-accent: #3b82f6;
+    --theme-background: #ffffff;
+    --theme-surface: #f8fafc;
+    --theme-text: #1e293b;
+    --theme-text-light: #64748b;
+    --theme-border: #e2e8f0;
+    --theme-code-bg: #1e293b;
+    --theme-code-text: #e2e8f0;
+    --theme-code-border: transparent;
+    --theme-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --theme-font-mono: 'Courier New', Courier, monospace;
+    --theme-line-height: 1.6;
+}
+
+/* Preview Content Styling for Modern Theme */
+.preview-content h1,
+.preview-content h2,
+.preview-content h3,
+.preview-content h4,
+.preview-content h5,
+.preview-content h6 {
+    color: var(--theme-text);
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+.preview-content h1 {
+    font-size: 2.25rem;
+    border-bottom: 3px solid var(--theme-primary);
+    padding-bottom: 0.5rem;
+}
+
+.preview-content h2 {
+    font-size: 1.875rem;
+    border-bottom: 2px solid var(--theme-accent);
+    padding-bottom: 0.4rem;
+}
+
+.preview-content h3 {
+    font-size: 1.5rem;
+    color: var(--theme-primary);
+}
+
+.preview-content h4 {
+    font-size: 1.25rem;
+}
+
+.preview-content h5 {
+    font-size: 1.125rem;
+}
+
+.preview-content h6 {
+    font-size: 1rem;
+    color: var(--theme-text-light);
+}
+
+/* Paragraphs */
+.preview-content p {
+    margin-bottom: 1em;
+    color: var(--theme-text);
+    line-height: var(--theme-line-height);
+}
+
+/* Links */
+.preview-content a {
+    color: var(--theme-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.preview-content a:hover {
+    border-bottom-color: var(--theme-primary);
+}
+
+/* Lists */
+.preview-content ul,
+.preview-content ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.preview-content li {
+    margin: 0.5em 0;
+    color: var(--theme-text);
+}
+
+.preview-content ul > li {
+    list-style-type: disc;
+}
+
+.preview-content ul ul > li {
+    list-style-type: circle;
+}
+
+.preview-content ol {
+    list-style-type: decimal;
+}
+
+/* Code Blocks */
+.preview-content code {
+    background-color: #f1f5f9;
+    color: #e11d48;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-family: var(--theme-font-mono);
+    font-size: 0.875em;
+}
+
+.preview-content pre {
+    background-color: var(--code-theme-bg, var(--theme-code-bg));
+    color: var(--code-theme-text, var(--theme-code-text));
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border-left: 4px solid var(--theme-primary);
+}
+
+.preview-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.875rem;
+}
+
+/* Blockquotes */
+.preview-content blockquote {
+    border-left: 4px solid var(--theme-primary);
+    padding: 1rem 1.5rem;
+    margin: 1.5em 0;
+    background-color: var(--theme-surface);
+    color: var(--theme-text-light);
+    font-style: italic;
+}
+
+.preview-content blockquote p {
+    margin: 0;
+}
+
+/* Tables */
+.preview-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.preview-content th {
+    background-color: var(--theme-primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.preview-content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.preview-content tr:nth-child(even) {
+    background-color: var(--theme-surface);
+}
+
+.preview-content tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Horizontal Rules */
+.preview-content hr {
+    border: none;
+    border-top: 2px solid var(--theme-border);
+    margin: 2em 0;
+}
+
+/* Images */
+.preview-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Strong and Emphasis */
+.preview-content strong {
+    font-weight: 700;
+    color: var(--theme-text);
+}
+
+.preview-content em {
+    font-style: italic;
+    color: var(--theme-text-light);
+}
+
+/* Strikethrough */
+.preview-content del {
+    text-decoration: line-through;
+    color: var(--theme-text-light);
+    opacity: 0.7;
+}
+
+/* Mermaid Diagrams */
+.preview-content .mermaid {
+    margin: 2em 0;
+    text-align: center;
+    background-color: var(--theme-surface);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--theme-border);
+}

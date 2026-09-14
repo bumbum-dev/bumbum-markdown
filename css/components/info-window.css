@@ -1,0 +1,88 @@
+/**
+ * Info Window Content Styles
+ * Shared content styling for the Help and About windows
+ */
+
+.info-window-content {
+    padding: 16px 20px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-normal);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.info-window-content h2,
+.info-window-content h3 {
+    margin: 0 0 8px;
+    font-size: var(--font-size-heading);
+}
+
+.info-window-content h3 {
+    font-size: var(--font-size-large);
+    margin-top: 16px;
+}
+
+.info-window-content h3:first-child {
+    margin-top: 0;
+}
+
+.info-window-content p {
+    margin: 0 0 10px;
+}
+
+.info-window-content ul {
+    margin: 0 0 10px;
+    padding-left: 20px;
+}
+
+.info-window-content li {
+    margin-bottom: 4px;
+}
+
+.info-window-content kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+    background: var(--win95-button-face);
+    border: 1px solid;
+    border-top-color: var(--win95-button-highlight);
+    border-left-color: var(--win95-button-highlight);
+    border-right-color: var(--win95-button-dark-shadow);
+    border-bottom-color: var(--win95-button-dark-shadow);
+}
+
+.info-window-shortcuts {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-window-shortcuts td {
+    padding: 4px 0;
+}
+
+.info-window-shortcuts td:first-child {
+    width: 40%;
+    white-space: nowrap;
+}
+
+/* About window layout */
+.info-window-content--centered {
+    text-align: center;
+}
+
+.info-window-icon {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.info-window-version {
+    color: var(--win95-text-disabled);
+    margin-bottom: 12px;
+}
+
+.info-window-content--centered a.win95-button {
+    text-decoration: none;
+    margin-top: 8px;
+}
